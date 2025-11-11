@@ -44,6 +44,13 @@ This is a **learning project**, not a production application. The user (Vinny) i
 
 3. **This file (CLAUDE.md)** - Instructions for AI assistants
 
+### Learning Modules (Reference Files)
+- **Learning Modules/MODULE1.md** through **MODULE7.md** - Detailed reference for each module
+  - Created at the START of each module (before user writes code)
+  - Contains: learning objectives, key concepts, task description, hints, common mistakes
+  - Permanent reference the user can review any time
+  - Template for future modules should match MODULE1.md structure
+
 ### Source Files (Created During Learning)
 - `PracticeTracker.java` - Main entry point (CLI handler)
 - `Session.java` - Data model for a practice session
@@ -70,13 +77,17 @@ Keep it simple. Resist feature creep. The goal is learning fundamentals.
 
 ### For Each Module:
 
-1. **Explain** what we're building and why it matters
-2. **Show** the Java concept/pattern needed
-3. **Compare** to JavaScript where relevant
-4. **Design Decision**: Explain why this approach over alternatives
-5. **Let User Code**: Provide hints, not solutions
-6. **Review**: When user shares code, explain what's right/wrong
-7. **Update LEARNING.md**: Document the learning
+1. **Create MODULE{N}.md** in "Learning Modules/" folder FIRST
+   - Include: learning objectives, key concepts, task description, hints, common mistakes
+   - This becomes a permanent reference for the user
+   - Follow the structure established in MODULE1.md
+2. **Explain** what we're building and why it matters
+3. **Show** the Java concept/pattern needed
+4. **Compare** to JavaScript where relevant
+5. **Design Decision**: Explain why this approach over alternatives
+6. **Let User Code**: Provide hints, not solutions
+7. **Review**: When user shares code, explain what's right/wrong
+8. **Update LEARNING.md**: Document the learning
 
 ### When User Makes Mistakes:
 
@@ -87,6 +98,7 @@ Keep it simple. Resist feature creep. The goal is learning fundamentals.
 
 ### Module Completion Checklist:
 
+- [ ] MODULE{N}.md created in "Learning Modules/" folder at module start
 - [ ] User wrote the code themselves (or you explained why you wrote it)
 - [ ] Concepts are explained, not just demonstrated
 - [ ] LEARNING.md is updated with new concepts
@@ -149,8 +161,9 @@ This creates a learning history the user can review.
 
 1. **Read PROJECT_ROADMAP.md** - Understand the curriculum
 2. **Read LEARNING.md** - Know what user already understands
-3. **Check recent git commits** - See what was last completed
-4. **Ask user**: "What module are we working on?" or "Where did we leave off?"
+3. **Check Learning Modules/** - See which MODULE{N}.md files exist (indicates progress)
+4. **Check recent git commits** - See what was last completed
+5. **Ask user**: "What module are we working on?" or "Where did we leave off?"
 
 ## Red Flags (Stop and Ask User)
 
