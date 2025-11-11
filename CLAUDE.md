@@ -105,6 +105,81 @@ Keep it simple. Resist feature creep. The goal is learning fundamentals.
 - [ ] Git commit made with clear message
 - [ ] User confirms understanding before moving on
 
+## MODULE{N}.md Structure Guidelines
+
+**CRITICAL**: The user is a senior engineer. They need to understand WHY and WHAT, not copy-paste HOW.
+
+### What to INCLUDE (Teach the Mental Model):
+
+1. **Learning Objectives** - What concepts will be encountered
+2. **Conceptual Explanations** - WHY Java works this way, what problems it solves
+3. **JS vs Java Comparisons** - Leverage existing knowledge, show differences
+4. **Design Decisions & Tradeoffs** - Why this approach over alternatives
+5. **Requirements & Constraints** - What the code must do/achieve (not how)
+6. **Testing Approach** - How to verify it works (test code is okay to provide)
+7. **Expected Behavior** - What success looks like (output, behavior)
+8. **Common Mistakes** - What to watch for (but not how to avoid them exactly)
+9. **API Pointers** - "LocalDate has .now() and .of() methods" (teach the API)
+10. **Search Terms** - "Look up: Java constructor syntax" (enable self-research)
+
+### What to EXCLUDE (Don't Give Away Solutions):
+
+1. ❌ Complete implementations of what they're supposed to build
+2. ❌ Fill-in-the-blank templates with comment placeholders
+3. ❌ Exact method signatures for things they should figure out
+4. ❌ "Hints" sections that are really just solutions
+5. ❌ Step-by-step "do this then do that" instructions
+6. ❌ Code snippets that directly implement the task requirements
+
+### What to CAREFULLY CONSIDER:
+
+**Analogous Examples** - Show SIMILAR code that teaches the concept but isn't the exact solution:
+- ✅ Good: Show a `Person` class to teach constructors when they're building `Session`
+- ❌ Bad: Show a `Session` class implementation when they're building `Session`
+
+**API Examples** - Teaching an API is different from solving the problem:
+- ✅ Good: Show how `LocalDate.now()` and `LocalDate.of()` work
+- ❌ Bad: Show exactly how to use `LocalDate` in their Session constructor
+
+### The Balance: Productive Struggle
+
+**Too Easy** (avoid): They just copy-paste or fill in obvious blanks
+**Too Hard** (avoid): They have no idea where to start or what to research
+**Just Right** (goal): They understand the concepts, have clear requirements, and need to figure out implementation
+
+**Example of Good vs Bad:**
+
+❌ **Bad** (gives away solution):
+```java
+public class Session {
+    private LocalDate date;
+
+    public LocalDate getDate() {
+        return date;
+    }
+}
+```
+
+✅ **Good** (teaches concept):
+```
+In Java, you typically make fields private and provide public methods to read them.
+
+Your Challenge: How will you allow external code to READ your fields without allowing them to WRITE to them?
+
+Naming Convention: Java uses "Bean" naming conventions - look up "Java getter naming convention"
+```
+
+### Target Audience Reminder:
+
+The user:
+- Knows how to program (senior engineer)
+- Knows how to read documentation
+- Knows how to Google syntax
+- Wants to understand WHY and make informed decisions
+- Doesn't want to be spoon-fed HOW
+
+Teach concepts, not implementations. Enable discovery, don't eliminate struggle.
+
 ## Communication Style
 
 - **Clear and structured** - User values organization
