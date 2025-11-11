@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class PracticeTracker {
     public static void main(String[] args) {
         if (args.length == 2) {
@@ -9,5 +11,9 @@ public class PracticeTracker {
             System.out.println("Cannot run CLI with zero or more than two args");
         }
 
+        Session session = new Session(LocalDate.now(), 45);
+        System.out.println("Date: " + session.getDate());
+        System.out.println("Duration: " + session.getDuration());
+        System.out.println(session);
     }
 }
