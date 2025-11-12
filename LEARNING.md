@@ -13,22 +13,27 @@
 - **Java Project Structure**: ✅ Understood - Files must match class names, one public class per file
 - **main Method Signature**: ✅ Understood - `public static void main(String[] args)` entry point
 - **Command-line Arguments**: ✅ Understood - `String[] args` array, access with bounds checking
-- **Static Methods**: ✅ Understood - Belongs to class, not instance; contrasts with instance methods
+- **Static vs Instance**: ✅ Understood - Static belongs to class, instance belongs to objects with state
 - **Static Typing**: ✅ Understood - Types declared explicitly, enforced at compile time
 - **Classes & Objects**: ✅ Understood - Class as blueprint, object as instance
 - **Constructors**: ✅ Understood - Special method for initialization, no return type
 - **Encapsulation**: ✅ Understood - Private fields with public getters for controlled access
 - **Immutability**: ✅ Understood - No setters = object can't change after creation
-- **Method Overriding**: 🌿 Practicing - Override toString() to customize behavior
-- **Imports**: ✅ Understood - Must import classes from other packages (java.time.LocalDate)
+- **Method Overriding**: ✅ Understood - Override toString() to customize behavior
+- **Imports**: ✅ Understood - Must import classes from other packages (java.time, java.util)
+- **Generics**: ✅ Understood - Type parameters like `<Session>` for compile-time type safety
+- **ArrayList**: ✅ Understood - Dynamic, resizable collection from java.util
+- **Enhanced For-Loop**: ✅ Understood - `for (Type item : collection)` syntax
+- **Accumulator Pattern**: ✅ Understood - Initialize, loop, accumulate (sum/count/etc)
+- **Defensive Copying**: ✅ Understood - Return copies to protect internal state
+- **Separation of Concerns**: ✅ Understood - Data model vs business logic vs UI layers
 - **File I/O**: 🌱 Not started
 - **Exception Handling**: 🌱 Not started
-- **Collections Framework**: 🌱 Not started
 
 ## Project Modules Completed
 - [x] Module 1: Project Setup & Basic Structure
 - [x] Module 2: Session Data Model
-- [ ] Module 3: SessionManager - Core Logic
+- [x] Module 3: SessionManager - Core Logic
 - [ ] Module 4: File Persistence - Writing
 - [ ] Module 5: File Persistence - Reading
 - [ ] Module 6: Commands Implementation
@@ -54,6 +59,18 @@
 - **@Override annotation**: Indicates intentional method override, catches typos
 - **toString() Method**: Returns string representation for debugging, called automatically by println
 
+### Module 3: SessionManager - Core Logic
+- **ArrayList<T>**: Dynamic, resizable collection from `java.util` package
+- **Generics**: `ArrayList<Session>` enforces type safety - can only hold Session objects
+- **Diamond Operator**: `new ArrayList<>()` - compiler infers type from declaration
+- **Manager Pattern**: Dedicated class for business logic, encapsulates collection and operations
+- **Instance State**: Manager holds data (sessions list), so it's instance-based not static
+- **add() Method**: `sessions.add(session)` - append to ArrayList
+- **Enhanced For-Loop**: `for (Session s : sessions)` - iterate without index
+- **Accumulator Pattern**: Initialize to 0, loop through collection, accumulate sum
+- **Defensive Copy**: `new ArrayList<>(this.sessions)` - copy constructor protects internal state
+- **Separation of Concerns**: Session (data) + SessionManager (logic) + PracticeTracker (UI)
+
 ## Questions Asked & Insights
 
 ### Module 1
@@ -68,6 +85,15 @@
 
 **Key Realization**: The verbosity serves a purpose - `private LocalDate date` + constructor + getter is explicit specification that the compiler can verify. Can't create invalid Sessions, can't mutate them accidentally. The code IS the documentation.
 
+### Module 3
+**Insight**: Generics provide compile-time type safety. `ArrayList<Session>` isn't just documentation - the compiler enforces it. Try to add a String to it? Compile error. This is Java's philosophy: catch mistakes at compilation, not at 3am in production.
+
+**Design Decision**: Initially returned `Session[]` array from `listSessions()` to prevent external modification of internal ArrayList. After discussing tradeoffs (type consistency vs defensive copying), refactored to return `new ArrayList<>(this.sessions)` - defensive copy with same type. This reduces cognitive load while maintaining encapsulation.
+
+**Key Realization**: The manager pattern solves the "where does this logic live?" question. In JS, you might scatter functions around. Java encourages explicit organization: Session = data, SessionManager = logic, PracticeTracker = UI. When we add persistence in Module 4, we'll only touch SessionManager.
+
+**Refactoring Experience**: Had working code (array version), identified improvement (type consistency), made the change, verified it works. This is how code evolves - not just "make it work" but "make it right."
+
 ## Common Mistakes & Corrections
 
 ### Module 1
@@ -75,6 +101,9 @@
 
 ### Module 2
 - **None observed** - Clean implementation with proper use of `this` keyword, correct getter naming, and @Override annotation.
+
+### Module 3
+- **None observed** - Clean implementation with proper encapsulation, correct use of generics, and good defensive programming instincts.
 
 ## JavaScript vs Java Comparisons
 
@@ -102,28 +131,39 @@
 - **JS**: `session.duraton = 45` (typo) - silent bug, undefined behavior
 - **Java**: `session.getDuraton()` - compilation error, caught immediately
 
+### Collections
+- **JS**: `const sessions = []` - can hold any type, no enforcement
+- **Java**: `ArrayList<Session> sessions = new ArrayList<>()` - can ONLY hold Sessions, compiler enforces
+
+### Iteration
+- **JS**: `for (const session of sessions)` - works on any iterable
+- **Java**: `for (Session session : sessions)` - enhanced for-loop, type declared explicitly
+
 ## Review Before Next Session
 
 ### What We Built
 - `PracticeTracker.java` - CLI entry point (Module 1)
 - `Session.java` - Immutable data model with date and duration (Module 2)
+- `SessionManager.java` - Business logic layer managing collection of sessions (Module 3)
 
 ### Key Takeaways
-- **Encapsulation pattern**: private fields + constructor + getters = controlled, immutable objects
-- **Type safety**: Compiler enforces contracts - impossible to create invalid Sessions
-- **this keyword**: Critical for disambiguating parameters from fields
-- **@Override**: Best practice for overriding methods, catches mistakes
-- **Java Bean conventions**: `getFieldName()` pattern for getters
+- **Manager pattern**: Encapsulates collection and operations in dedicated class
+- **Generics**: `ArrayList<Session>` - compile-time type safety for collections
+- **Defensive copying**: Return `new ArrayList<>(this.sessions)` to protect internal state
+- **Separation of concerns**: Data model (Session) vs logic (SessionManager) vs UI (PracticeTracker)
+- **Accumulator pattern**: Initialize to 0, loop, accumulate - standard algorithm for sums
+- **Copy constructor**: `new ArrayList<>(existingList)` creates shallow copy
 
-### Concepts to Reinforce in Module 3
-- Static typing (will use `ArrayList<Session>` with generics)
-- Class structure (will build SessionManager following same patterns)
-- Imports (will need java.util imports)
+### Concepts to Reinforce in Module 4
+- Encapsulation (SessionManager already uses private fields)
+- Class structure (will continue same patterns for persistence methods)
+- ArrayList operations (will iterate when writing to file)
+- Enhanced for-loop (will use when saving sessions)
 
-### Ready For Module 3
-Next we'll create the `SessionManager` class - business logic layer. This will introduce:
-- ArrayList and the Collections framework
-- Generics (`ArrayList<Session>`)
-- Method design (public vs private)
-- Accumulator patterns (calculating totals)
-- Separation of concerns (manager vs data model)
+### Ready For Module 4
+Next we'll add **file persistence - writing**. This will introduce:
+- File I/O with `java.nio.file` package
+- `try-with-resources` for automatic resource cleanup
+- Checked exceptions and why Java forces you to handle them
+- String formatting for serialization
+- The difference between in-memory state and persistent storage

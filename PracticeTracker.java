@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class PracticeTracker {
     public static void main(String[] args) {
@@ -11,9 +12,19 @@ public class PracticeTracker {
             System.out.println("Cannot run CLI with zero or more than two args");
         }
 
-        Session session = new Session(LocalDate.now(), 45);
-        System.out.println("Date: " + session.getDate());
-        System.out.println("Duration: " + session.getDuration());
-        System.out.println(session);
+        SessionManager manager = new SessionManager();
+        manager.addSession(new Session(LocalDate.now(), 45));
+        manager.addSession(new Session(LocalDate.of(2025, 11, 10), 60));
+        manager.addSession(new Session(LocalDate.of(2025, 11, 9), 30));
+
+        ArrayList<Session> sessions = manager.listSessions();
+        System.out.println("All sessions:");
+        for (Session s : sessions) {
+            System.out.println(s);
+        }
+
+        // Test total
+        int total = manager.getTotalMinutes();
+        System.out.println("Total minutes: " + total);
     }
 }
