@@ -1,0 +1,917 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red187\green187\blue187;\red0\green0\blue0;\red221\green90\blue62;
+\red255\green255\blue255;\red135\green135\blue135;\red255\green255\blue255;\red42\green42\blue42;\red255\green65\blue106;
+\red0\green180\blue72;\red160\green168\blue254;\red81\green81\blue81;\red112\green20\blue40;\red0\green77\blue27;
+\red177\green60\blue87;\red0\green156\blue70;\red0\green0\blue187;\red187\green187\blue0;\red187\green0\blue0;
+\red0\green187\blue0;\red70\green73\blue108;}
+{\*\expandedcolortbl;;\cspthree\c78104\c78104\c78104;\cspthree\c0\c0\c0;\cspthree\c84314\c46667\c34118;
+\cspthree\c100000\c100000\c100000;\cspthree\c60000\c60000\c60000;\cspthree\c100000\c100000\c100000;\cspthree\c21569\c21569\c21569;\cspthree\c100000\c41961\c50196;
+\cspthree\c30588\c72941\c39608;\cspthree\c69412\c72549\c97647;\cspthree\c39052\c39052\c39052;\cspthree\c47843\c16078\c21176;\cspthree\c13333\c36078\c16863;
+\cspthree\c70196\c34902\c41961;\cspthree\c21961\c65098\c37647;\cspthree\c4998\c14302\c75097;\cspthree\c77864\c76996\c24309;\cspthree\c72501\c19050\c9922;
+\cspthree\c32054\c75090\c21583;\cspthree\c34706\c36275\c48824;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \ulnone  \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4  \uc0\u9616 \u9627 \u9608 \u9608 \u9608 \u9628 \u9612 \cf2    \cf5 Claude Code\cf2  \cf6 v2.0.37\cf2  \
+\cf4 \uc0\u9629 \u9628 \u9608 \u9608 \u9608 \u9608 \u9608 \u9627 \u9624 \cf2   \cf6 Sonnet 4.5 \'b7 Claude Max\cf2  \
+\cf4   \uc0\u9624 \u9624  \u9629 \u9629   \cf2   \cf6 learning java/practice session tracker\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > I'm ready to start Module 4 of my Java learning journey. Please read \cf2 \cb3  \
+\cf7 \cb8 @CLAUDE.md,\cf2 \cb3  \
+\cf7 \cb8   @LEARNING.md,\cf2 \cb3  \
+\cf7 \cb8   @PROJECT_ROADMAP.md, and @Learning Modules/MODULE4.md (if it exists) to \cf2 \cb3  \
+\cf7 \cb8   understand where I am and \cf2 \cb3  \
+\cf7 \cb8   what we're working on.\cf2 \cb3  \
+ \
+\cf7 \cb8   I've completed:\cf2 \cb3  \
+\cf7 \cb8   - Module 1: Project Setup & Basic Structure \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 2: Session Data Model \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 3: SessionManager - Core Logic \uc0\u9989 \cf2 \cb3  \
+ \
+\cf7 \cb8   Let's begin Module 4: File Persistence - Writing. \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  I'll help you start Module 4! Let me first check if the MODULE4.md file \
+  exists, then we'll dive into file persistence. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (Learning Modules/MODULE4.md) \
+  \uc0\u9151  \'a0\cf9 Error reading file\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! I can see you've completed Modules 1-3 and you're ready for \
+  Module 4. The MODULE4.md file doesn't exist yet, so I'll create it first \
+  as your learning reference, then we'll discuss the concepts. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Write\cf2 (Learning Modules/MODULE4.md) \
+  \uc0\u9151  \'a0Wrote \cf5 381\cf2  lines to \cf5 Learning Modules/MODULE4.md\cf2                        \
+     # Module 4: File Persistence - Writing \
+     \cf5 **Estimated Time**\cf2 : 30-45 minutes \
+     \cf5 **Prerequisites**\cf2 : Modules 1-3 (classes, ArrayList, encapsulation, \
+     iteration) \
+     ## Learning Objectives \
+     By the end of this module, you'll understand: \
+     - How Java handles file I/O and why it differs from JavaScript \
+     - What checked exceptions are and why Java forces you to handle them \
+     \cf6 \'85 +371 lines (ctrl+o to expand)\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! You're ready for Module 4. I've created your learning reference \
+   document. Let me introduce what you'll be tackling today. \
+ \
+  --- \
+  \cf5 Module 4: File Persistence - Writing\cf2  \
+ \
+  \cf5 What we're building\cf2 : The ability to save your practice sessions to a file \
+  so they survive after the program exits. \
+ \
+  Right now, your SessionManager works beautifully - but only in memory. Add \
+   a session, list it, calculate the total... then the program ends and poof \
+   - all your data is gone. Not very useful for tracking practice over time! \
+ \
+  \cf11 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Java's Philosophy on I/O: Optimistic vs Defensive\cf2  \
+ \
+  JavaScript says: "Try the I/O operation, deal with errors if they happen." \
+  Java says: "Before you even compile, prove to me you have a plan for when \
+  this fails." \
+ \
+  This is checked exceptions in action. File operations declare \cf11 throws \cf2  \
+  IOException in their signature - it's a compile-time contract that says \
+  "this can fail in ways beyond your control." The compiler won't let you \
+  ignore this. \
+ \
+  Why? Because in production, I/O failures are NORMAL: \
+  - Disks fill up \
+  - Permissions change \
+  - Networks hiccup \
+  - Hardware fails \
+ \
+  JavaScript makes it easy to ship code that crashes mysteriously at 3am. \
+  Java makes it impossible to compile that code in the first place. \
+  \cf11 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf12 Key Concepts You'll Encounter\cf2  \
+ \
+  1. \cf5 Checked Exceptions\cf2  - IOException must be handled or declared, no \
+  exceptions (pun intended) \
+  2. \cf5 Try-With-Resources\cf2  - Java's elegant solution to resource leaks \
+  (auto-cleanup of file handles) \
+  3. \cf5 java.nio.file Package\cf2  - Modern Java file I/O (Path, Files, Paths) \
+  4. \cf5 Data Serialization\cf2  - Choosing a format and converting objects to text \
+ \
+  \cf12 Your Mission\cf2  \
+ \
+  Modify \cf11 SessionManager.java\cf2  to write sessions to \cf11 sessions.txt\cf2  after each \
+  add. Keep it simple - we'll add reading in Module 5. \
+ \
+  \cf5 I've created a comprehensive MODULE4.md reference\cf2  that explains: \
+  - Why Java's I/O is different from JavaScript \
+  - What checked exceptions are and why they exist \
+  - How try-with-resources prevents resource leaks \
+  - API hints for Files, Path, and exception handling \
+  - Design decisions around format and error handling \
+ \
+  Read through it, then implement the file writing functionality. You should \
+   spend 10-30 minutes thinking and coding - if you're stuck longer than \
+  that, we'll work through it together. \
+ \
+  \cf5 Remember\cf2 : The goal isn't to get it perfect on the first try. The goal is \
+  to struggle productively with these new concepts (checked exceptions, file \
+   I/O) while reinforcing what you already know (encapsulation, ArrayList \
+  iteration, String operations). \
+ \
+  When you're ready to share your implementation (or if you hit a wall), let \
+   me know and we'll review it together! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > i'm not sure if your testing directions are correct in @"Learning \cf2 \cb3  \
+\cf7 \cb8 Modules/MODULE4.md". our PracticeTracker.java isn't set up to handle \cf2 \cb3  \
+\cf7 \cb8 commands just yet? \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  You're absolutely right to question that! Let me check what \
+  PracticeTracker.java actually does right now. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 32\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent catch! You're absolutely right - PracticeTracker just prints the \
+   command arguments right now. Module 6 is where we actually wire up the \
+  commands to do real work. \
+ \
+  Looking at your current PracticeTracker.java, it's actually \cf5 already set up\cf2  \
+  \cf5  as a test harness\cf2  with those three hardcoded sessions (lines 17-19). This \
+   is perfect for testing file persistence! \
+ \
+  Here's what will actually happen when you implement file writing: \
+ \
+  \cf12 Correct Testing Approach\cf2  \
+ \
+  \cf5 Test 1: Run the program\cf2  \
+  javac *.java \
+  java PracticeTracker add 45 \
+ \
+  (The "add 45" arguments don't matter yet - they just get printed. The real \
+   action is the hardcoded sessions.) \
+ \
+  \cf5 Check\cf2 : Look at \cf11 sessions.txt\cf2  - you should see three sessions: \
+  2025-11-13,45 \
+  2025-11-10,60 \
+  2025-11-09,30 \
+ \
+  \cf5 Test 2: Run it again\cf2  \
+  java PracticeTracker list \
+ \
+  \cf5 Check\cf2 : The file should be overwritten with the same three sessions (since \
+  SessionManager starts empty each time, adds the three hardcoded ones, then \
+   saves). \
+ \
+  --- \
+  Let me fix the MODULE4.md testing section to reflect the actual state of \
+  your code: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (Learning Modules/MODULE4.md) \
+  \uc0\u9151  \'a0Updated \cf5 Learning Modules/MODULE4.md\cf2  with \cf5 20\cf2  additions and \cf5 16\cf2  removals \
+     \cf6   260 \cf7    \cf2  \
+     \cf6   261 \cf7    ## Testing Your Implementation\cf2  \
+     \cf6   262 \cf7    \cf2  \
+     \cf6   263 \cf7 \cb13 -  ### Test 1: Single Session Persistence\cf2 \cb3  \
+     \cf6   263 \cf7 \cb14 +  Right now, PracticeTracker.java has three hardcoded test \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + sessions (lines 17-19). This is perfect for testing file \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + persistence! The actual command routing happens in Module 6.\cf2 \cb3  \
+     \cf6   264 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   265 \cf7 \cb14 +  ### Test 1: File Creation\cf2 \cb3  \
+     \cf6   266 \cf7    ```bash\cf2  \
+     \cf6   267 \cf7 \cb14 +  javac *.java\cf2 \cb3  \
+     \cf6   268 \cf7    java PracticeTracker add 45\cf2  \
+     \cf6   269 \cf7    ```\cf2  \
+     \cf6   270 \cf7    \cf2  \
+     \cf6   271 \cf7 \cb13 -  **Check**: Look at `sessions.txt` - you should see:\cf2 \cb3  \
+     \cf6   271 \cf7 \cb14 +  (The "add 45" arguments are just printed for now. The real \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + test is the hardcoded sessions.)\cf2 \cb3  \
+     \cf6   272 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   273 \cf7 \cb14 +  **Check**: Look at `sessions.txt` - you should see three \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + sessions:\cf2 \cb3  \
+     \cf6   274 \cf7    ```\cf2  \
+     \cf6   275 \cf2 \cb13 -  \cf7 2025-11-\cb15 12\cb13 ,45\cf2 \cb3  \
+     \cf6   275 \cf2 \cb14 +  \cf7 2025-11-\cb16 13\cb14 ,45\cf2 \cb3  \
+     \cf6   276 \cf7 \cb14 +  2025-11-10,60\cf2 \cb3  \
+     \cf6   277 \cf7 \cb14 +  2025-11-09,30\cf2 \cb3  \
+     \cf6   278 \cf7    ```\cf2  \
+     \cf6   279 \cf7 \cb13 -  (with today's date)\cf2 \cb3  \
+     \cf6   279 \cf7    \cf2  \
+     \cf6   280 \cf7 \cb13 -  ### Test 2: Multiple Sessions\cf2 \cb3  \
+     \cf6   280 \cf7 \cb14 +  (First date will be today's date)\cf2 \cb3  \
+     \cf6   281 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   282 \cf7 \cb14 +  ### Test 2: File Overwriting\cf2 \cb3  \
+     \cf6   283 \cf7    ```bash\cf2  \
+     \cf6   284 \cf2 \cb13 -  \cf7 java PracticeTracker \cb15 add 30\cf2 \cb3  \
+     \cf6   285 \cf7 \cb13 -  java PracticeTracker add 60\cf2 \cb3  \
+     \cf6   284 \cf2 \cb14 +  \cf7 java PracticeTracker \cb16 list\cf2 \cb3  \
+     \cf6   285 \cf7    ```\cf2  \
+     \cf6   286 \cf7    \cf2  \
+     \cf6   287 \cf7 \cb13 -  **Check**: `sessions.txt` should contain:\cf2 \cb3  \
+     \cf6   288 \cf7 \cb13 -  ```\cf2 \cb3  \
+     \cf6   289 \cf7 \cb13 -  2025-11-12,45\cf2 \cb3  \
+     \cf6   290 \cf7 \cb13 -  2025-11-12,30\cf2 \cb3  \
+     \cf6   291 \cf7 \cb13 -  2025-11-12,60\cf2 \cb3  \
+     \cf6   292 \cf7 \cb13 -  ```\cf2 \cb3  \
+     \cf6   287 \cf7 \cb14 +  **Check**: Run it again. The file should be overwritten \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + with the same three sessions.\cf2 \cb3  \
+     \cf6   288 \cf7    \cf2  \
+     \cf6   289 \cf7 \cb13 -  ### Test 3: Overwriting vs Appending\cf2 \cb3  \
+     \cf6   290 \cf7 \cb13 -  Run the tests above. Does each run *append* to the file or \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - *overwrite* it?\cf2 \cb3  \
+     \cf6   289 \cf7 \cb14 +  **Why overwriting?** Because SessionManager starts with an \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + empty ArrayList each run, adds the three hardcoded sessions,\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  then saves. In Module 5, when we add reading, the behavior \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + will change - it'll load existing sessions first, then add \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + to them.\cf2 \cb3  \
+     \cf6   290 \cf7    \cf2  \
+     \cf6   291 \cf7 \cb13 -  **Expected behavior**: Since your SessionManager starts \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - with an empty ArrayList each run, it should overwrite. When \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - we add reading in Module 5, this will change.\cf2 \cb3  \
+     \cf6   291 \cf7 \cb14 +  ### Test 3: Verify Format\cf2 \cb3  \
+     \cf6   292 \cf7 \cb14 +  Open `sessions.txt` in a text editor. Each line should be: \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + `YYYY-MM-DD,duration`\cf2 \cb3  \
+     \cf6   293 \cf7    \cf2  \
+     \cf6   294 \cf7 \cb14 +  No extra spaces, no brackets, no quotes. Just clean CSV.\cf2 \cb3  \
+     \cf6   295 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   296 \cf7    ## Common Pitfalls\cf2  \
+     \cf6   297 \cf7    \cf2  \
+     \cf6   298 \cf7    ### Forgetting Import Statements\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect, I've updated MODULE4.md with the correct testing instructions! \
+ \
+  \cf11 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 What you just demonstrated: Systems Thinking\cf2  \
+ \
+  You didn't just read the instructions and blindly follow them. You thought \
+   about how the pieces fit together: \
+  - "Wait, PracticeTracker doesn't handle commands yet..." \
+  - "So how can I test 'add 45' actually doing anything?" \
+ \
+  This is exactly the kind of thinking that separates junior from senior \
+  engineers. You're not just implementing isolated pieces - you're \
+  understanding the whole system and how changes propagate through it. \
+ \
+  This mental model (Entry Point \uc0\u8594  Business Logic \u8594  Data Model \u8594  \
+  Persistence) is crucial. When you modify SessionManager to write files, \
+  you know that PracticeTracker calls it, which means the file writing \
+  happens automatically when those hardcoded sessions are added. \
+  \cf11 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  Now you're ready to implement! Your current PracticeTracker is actually a \
+  perfect test harness - those three hardcoded sessions will automatically \
+  save to \cf11 sessions.txt\cf2  once you add the file writing logic to \
+  SessionManager. \
+ \
+  Go ahead and implement the file persistence. Remember: \
+  - Read through MODULE4.md for the concepts and API hints \
+  - Modify SessionManager.java to save after adding sessions \
+  - Take your time with checked exceptions - this is new territory \
+  - 20-30 minutes of productive struggle is expected \
+ \
+  When you're ready to share your implementation, I'll review it with you! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > in the directions you have "java PracticeTracker list", but again, we \cf2 \cb3  \
+\cf7 \cb8 don't handle any commands! \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  You're completely right - I made the same mistake twice! The command \
+  arguments don't matter at all right now; they're just printed and ignored. \
+   Let me fix that: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (Learning Modules/MODULE4.md) \
+  \uc0\u9151  \'a0Updated \cf5 Learning Modules/MODULE4.md\cf2  with \cf5 4\cf2  additions and \cf5 2\cf2  removals  \
+     \cf6   281 \cf7    \cf2  \
+     \cf6   282 \cf7    ### Test 2: File Overwriting\cf2  \
+     \cf6   283 \cf7    ```bash\cf2  \
+     \cf6   284 \cf2 \cb13 -  \cf7 java PracticeTracker\cb15  list\cf2 \cb3  \
+     \cf6   284 \cf2 \cb14 +  \cf7 java PracticeTracker\cf2 \cb3  \
+     \cf6   285 \cf7    ```\cf2  \
+     \cf6   286 \cf7    \cf2  \
+     \cf6   287 \cf7 \cb13 -  **Check**: Run it again. The file should be overwritten \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - with the same three sessions.\cf2 \cb3  \
+     \cf6   287 \cf7 \cb14 +  (Or with any arguments - they're ignored for now)\cf2 \cb3  \
+     \cf6   288 \cf7    \cf2  \
+     \cf6   289 \cf7 \cb14 +  **Check**: Run the program again. The file should be \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + overwritten with the same three sessions.\cf2 \cb3  \
+     \cf6   290 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   291 \cf7    **Why overwriting?** Because SessionManager starts with an \cf2  \
+     \cf6       \cf7   empty ArrayList each run, adds the three hardcoded sessions,\cf2  \
+     \cf6       \cf7    then saves. In Module 5, when we add reading, the behavior \cf2  \
+     \cf6       \cf7   will change - it'll load existing sessions first, then add \cf2  \
+     \cf6       \cf7   to them.\cf2  \
+     \cf6   292 \cf7    \cf2  \
+     \cf6   293 \cf7    ### Test 3: Verify Format\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Fixed! Thanks for catching that twice - you're keeping me honest about the \
+   actual state of the code vs the instructions. \
+ \
+  The key insight here: right now, the command-line arguments are completely \
+   decorative. \cf11 java PracticeTracker\cf2 , \cf11 java PracticeTracker foo bar\cf2 , \cf11 java \cf2  \
+  PracticeTracker add 45 - they all do the exact same thing: print the \
+  arguments, then run the hardcoded test sessions. \
+ \
+  This is actually a common development pattern - build and test the core \
+  logic (SessionManager with file I/O) before wiring up the UI/CLI layer \
+  (actual command routing). You'll connect them in Module 6. \
+ \
+  Alright, now the instructions are accurate. Go ahead and implement the \
+  file writing! \uc0\u55357 \u56960  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > okay code is done check it out \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Great! Let me see what you've implemented. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Read\cf2 (SessionManager.java) \
+  \uc0\u9151  \'a0Read \cf5 47\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent implementation! Let me walk through what you did: \
+ \
+  \cf5 What You Did Right \uc0\u10003 \cf2  \
+ \
+  \cf5 1. Exception Handling Strategy\cf2  \
+  \cf17 private\cf18  \cf17 void\cf18  saveToFile() \cf17 throws\cf18  IOException \cf2 \{ ... \} \
+  \cf17 public\cf18  \cf17 void\cf18  addSession(Session session) \cf17 throws\cf18  IOException \cf2 \{ ... \} \
+  You chose to declare \cf11 throws IOException\cf2  and let the exception propagate \
+  up. This is a clean approach - you're saying "SessionManager operations \
+  can fail due to I/O, and callers need to know." Notice how this bubbles \
+  up: saveToFile \uc0\u8594  addSession \u8594  PracticeTracker.main (which already has \
+  \cf11 throws IOException\cf2  on line 6). \
+ \
+  \cf5 2. Clean Separation of Concerns\cf2  \
+  \cf17 private\cf18  \cf17 void\cf18  saveToFile() \cf2 \{ ... \} \
+  You created a private helper method for file I/O. This keeps \cf11 addSession()\cf2  \
+  focused on its job and makes the persistence logic reusable. Good \
+  instincts! \
+ \
+  \cf5 3. Correct API Usage\cf2  \
+  Path filePath = Paths.get(\cf19 "session.txt"\cf2 ); \
+  List<String> lines = \cf17 new\cf2  ArrayList<>(); \
+  \cf20 // ... build lines ...\cf2  \
+  Files.write(filePath, lines); \
+  You correctly: \
+  - Created a Path object (not just using a String) \
+  - Built a List where each element is one line \
+  - Used Files.write() which handles resources internally \
+ \
+  \cf5 4. String Formatting\cf2  \
+  lines.add(session.getDate() + \cf19 ","\cf2  + session.getDuration()); \
+  Perfect CSV format. LocalDate.toString() gives you "YYYY-MM-DD", which is \
+  exactly what you need. \
+ \
+  \cf5 One Typo \uc0\u55357 \u56347 \cf2  \
+ \
+  Line 14: \
+  Path filePath = Paths.get(\cf19 "session.txt"\cf2 );  \cf20 // Missing 's'\cf2  \
+ \
+  Should be \cf11 "sessions.txt"\cf2  (plural). Easy fix! \
+ \
+  \cf5 Let's Test It\cf2  \
+ \
+  Fix the typo, then: \
+ \
+  javac *.java \
+  java PracticeTracker \
+ \
+  Check if \cf11 sessions.txt\cf2  appears in your directory and contains three lines \
+  with the correct format: \
+  2025-11-13,45 \
+  2025-11-10,60 \
+  2025-11-09,30 \
+ \
+  Run it again to verify it overwrites the file (same content each time). \
+ \
+  Try it out and let me know what happens! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > oops, typo fixed, good to go! \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Now let's test it and see your file persistence in action: \
+ \
+  javac *.java \
+  java PracticeTracker \
+ \
+  Then check your directory - you should see a new \cf11 sessions.txt\cf2  file. Open \
+  it and see if it has the three sessions in CSV format. \
+ \
+  What do you see? Does the file exist? What's in it? \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yep, 2025-11-13,45\cf2 \cb3  \
+\cf7 \cb8 2025-11-10,60\cf2 \cb3  \
+\cf7 \cb8 2025-11-09,30 \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  \uc0\u55356 \u57225  Perfect! Your file persistence is working exactly as expected. \
+ \
+  \cf11 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 What Just Happened Under the Hood\cf2  \
+ \
+  When you ran \cf11 java PracticeTracker\cf2 , here's the chain of events: \
+ \
+  1. PracticeTracker.main() creates a SessionManager (empty ArrayList) \
+  2. Calls addSession() three times \
+  3. Each addSession() call: \
+    - Adds to the in-memory ArrayList \
+    - Calls saveToFile() \
+    - Which converts all sessions to strings \
+    - And writes them to disk using Files.write() \
+ \
+  Files.write() does a LOT for you: \
+  - Opens the file (creates if doesn't exist) \
+  - Gets a BufferedWriter (efficient I/O buffering) \
+  - Writes each line \
+  - Flushes buffers to disk \
+  - Closes the file handle \
+  - All wrapped in try-with-resources internally \
+ \
+  In JavaScript/Node.js, you'd handle much of this manually. Java's standard \
+   library gives you high-level operations that "just work" - but forces you \
+   to acknowledge they can fail (the \cf11 throws IOException\cf2 ). \
+ \
+  \cf5 The tradeoff\cf2 : More ceremony upfront (exception handling), fewer surprises \
+  in production. \
+  \cf11 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  Your implementation is clean, follows Java conventions, and handles errors \
+   appropriately by propagating the IOException up the call stack. \
+ \
+  --- \
+  \cf5 Module 4 Complete! \uc0\u10003 \cf2  \
+ \
+  You've successfully: \
+  - \uc0\u9989  Worked with Java's NIO file APIs (Path, Paths, Files) \
+  - \uc0\u9989  Handled checked exceptions with throws declarations \
+  - \uc0\u9989  Implemented CSV serialization \
+  - \uc0\u9989  Maintained encapsulation (private saveToFile helper) \
+  - \uc0\u9989  Made sessions persist across program runs \
+ \
+  Ready to commit this progress and update your learning journal? I can help \
+   with both! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yes do it \cf2 \cb3  \
+  \uc0\u9151  \'a0\cf9 Interrupted \cf6 \'b7 What should Claude do instead?\cf2  \
+ \
+\cf7 \cb8 > yes do it, and make note of how to best avoid the issues and errors you \cf2 \cb3  \
+\cf7 \cb8 made with the module 4 testing instructions so that we can avoid these types\cf2 \cb3  \
+\cf7 \cb8  of issues in future sessions as they can be disruptive to the learning \cf2 \cb3  \
+\cf7 \cb8 process \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Absolutely! Let me commit your work, update LEARNING.md, and add a \
+  critical note to CLAUDE.md to prevent this type of disruption in the \
+  future. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Read\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Read \cf5 170\cf2  lines \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session tracker"\
+       && git status) \
+  \uc0\u9151  \'a0On branch main                                \
+     Your branch is up to date with 'origin/main'. \
+     \cf12 \'85 +12 lines (ctrl+o to expand)\cf2  \
+  \uc0\u9151  \'a0\cf9 Interrupted \cf6 \'b7 What should Claude do instead?\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yes do it, and make note of how to best avoid the issues and errors you \cf2 \cb3  \
+\cf7 \cb8 made with the module 4 testing instructions so that we can avoid these types\cf2 \cb3  \
+\cf7 \cb8  of issues in future sessions as they can be disruptive to the learning \cf2 \cb3  \
+\cf7 \cb8 process \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Absolutely! Let me commit your work, update LEARNING.md, and add a \
+  critical note to CLAUDE.md to prevent this type of disruption in the \
+  future. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 3\cf2  additions and \cf5 2\cf2  removals                  \
+     \cf6   27 \cf7    - **Accumulator Pattern**: \uc0\u9989  Understood - Initialize, loop,\cf2  \
+     \cf6      \cf7    accumulate (sum/count/etc)\cf2  \
+     \cf6   28 \cf7    - **Defensive Copying**: \uc0\u9989  Understood - Return copies to \cf2  \
+     \cf6      \cf7   protect internal state\cf2  \
+     \cf6   29 \cf7    - **Separation of Concerns**: \uc0\u9989  Understood - Data model vs \cf2  \
+     \cf6      \cf7   business logic vs UI layers\cf2  \
+     \cf6   30 \cf7 \cb13 -  - **File I/O**: \uc0\u55356 \u57137  Not started\cf2 \cb3  \
+     \cf6   31 \cf7 \cb13 -  - **Exception Handling**: \uc0\u55356 \u57137  Not started\cf2 \cb3  \
+     \cf6   30 \cf7 \cb14 +  - **Checked Exceptions**: \uc0\u9989  Understood - Must handle or \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + declare `throws`, enforced at compile time\cf2 \cb3  \
+     \cf6   31 \cf7 \cb14 +  - **File I/O (NIO)**: \uc0\u9989  Understood - Path, Paths, Files \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + APIs for modern Java file operations\cf2 \cb3  \
+     \cf6   32 \cf7 \cb14 +  - **Exception Propagation**: \uc0\u9989  Understood - Using `throws` \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + to let exceptions bubble up call stack\cf2 \cb3  \
+     \cf6   33 \cf7    \cf2  \
+     \cf6   34 \cf7    ## Project Modules Completed\cf2  \
+     \cf6   35 \cf7    - [x] Module 1: Project Setup & Basic Structure\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 1\cf2  addition and \cf5 1\cf2  removal       \
+     \cf6   35 \cf7    - [x] Module 1: Project Setup & Basic Structure\cf2  \
+     \cf6   36 \cf7    - [x] Module 2: Session Data Model\cf2  \
+     \cf6   37 \cf7    - [x] Module 3: SessionManager - Core Logic\cf2  \
+     \cf6   38 \cf2 \cb13 -  \cf7 - [\cb15  \cb13 ] Module 4: File Persistence - Writing\cf2 \cb3  \
+     \cf6   38 \cf2 \cb14 +  \cf7 - [\cb16 x\cb14 ] Module 4: File Persistence - Writing\cf2 \cb3  \
+     \cf6   39 \cf7    - [ ] Module 5: File Persistence - Reading\cf2  \
+     \cf6   40 \cf7    - [ ] Module 6: Commands Implementation\cf2  \
+     \cf6   41 \cf7    - [ ] Module 7: Polish & Error Handling\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 12\cf2  additions                                \
+     \cf6   72 \cf7    - **Defensive Copy**: `new ArrayList<>(this.sessions)` - \cf2  \
+     \cf6      \cf7   copy constructor protects internal state\cf2  \
+     \cf6   73 \cf7    - **Separation of Concerns**: Session (data) + \cf2  \
+     \cf6      \cf7   SessionManager (logic) + PracticeTracker (UI)\cf2  \
+     \cf6   74 \cf7    \cf2  \
+     \cf6   75 \cf7 \cb14 +  ### Module 4: File Persistence - Writing\cf2 \cb3  \
+     \cf6   76 \cf7 \cb14 +  - **java.nio.file Package**: Modern file I/O APIs - Path, \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + Paths, Files\cf2 \cb3  \
+     \cf6   77 \cf7 \cb14 +  - **Path Interface**: Type-safe representation of file \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + system paths (vs raw strings)\cf2 \cb3  \
+     \cf6   78 \cf7 \cb14 +  - **Paths.get()**: Factory method to create Path objects \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + from strings\cf2 \cb3  \
+     \cf6   79 \cf7 \cb14 +  - **Files.write()**: High-level method to write List<String>\cf2 \cb3  \
+     \cf6      \cf7 \cb14 +  to file, one element per line\cf2 \cb3  \
+     \cf6   80 \cf7 \cb14 +  - **Checked Exceptions**: IOException must be caught or \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + declared with `throws`\cf2 \cb3  \
+     \cf6   81 \cf7 \cb14 +  - **Exception Propagation**: `throws IOException` in method \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + signature passes responsibility to caller\cf2 \cb3  \
+     \cf6   82 \cf7 \cb14 +  - **Private Helper Methods**: `saveToFile()` as private \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + method for separation of concerns\cf2 \cb3  \
+     \cf6   83 \cf7 \cb14 +  - **CSV Serialization**: Converting objects to text format \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + (date,duration per line)\cf2 \cb3  \
+     \cf6   84 \cf7 \cb14 +  - **Call Chain**: saveToFile() \uc0\u8594  addSession() \u8594  main(), each\cf2 \cb3  \
+     \cf6      \cf7 \cb14 +  declares throws\cf2 \cb3  \
+     \cf6   85 \cf7 \cb14 +  - **Automatic Resource Management**: Files.write() handles \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + file handles internally\cf2 \cb3  \
+     \cf6   86 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   87 \cf7    ## Questions Asked & Insights\cf2  \
+     \cf6   88 \cf7    \cf2  \
+     \cf6   89 \cf7    ### Module 1\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 9\cf2  additions                                 \
+     \cf6   107 \cf7    \cf2  \
+     \cf6   108 \cf7    **Refactoring Experience**: Had working code (array \cf2  \
+     \cf6       \cf7   version), identified improvement (type consistency), made \cf2  \
+     \cf6       \cf7   the change, verified it works. This is how code evolves - \cf2  \
+     \cf6       \cf7   not just "make it work" but "make it right."\cf2  \
+     \cf6   109 \cf7    \cf2  \
+     \cf6   110 \cf7 \cb14 +  ### Module 4\cf2 \cb3  \
+     \cf6   111 \cf7 \cb14 +  **Insight**: Checked exceptions are compile-time contracts.\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  When a method declares `throws IOException`, it's saying \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + "this operation interacts with the outside world and might \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + fail in ways beyond my control." The compiler forces you to \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + acknowledge this. In JavaScript, you can ignore file I/O \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + failures until they bite you in production. In Java, you \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + can't even compile without a plan.\cf2 \cb3  \
+     \cf6   112 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   113 \cf7 \cb14 +  **Philosophy Comparison**: JavaScript says "be optimistic, \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + handle errors if they happen." Java says "be defensive, \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + prove you have a plan before you ship." Neither is wrong - \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + they optimize for different things. JS optimizes for \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + velocity and flexibility. Java optimizes for reliability and\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  catching bugs before production.\cf2 \cb3  \
+     \cf6   114 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   115 \cf7 \cb14 +  **Key Realization**: Files.write() does SO MUCH under the \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + hood - opens file, creates BufferedWriter, writes lines, \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + flushes buffers, closes handles, all with automatic resource\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  management. In Node.js, you'd handle much of this manually.\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  Java's stdlib gives you high-level operations that "just \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + work" but forces you to handle failures.\cf2 \cb3  \
+     \cf6   116 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   117 \cf7 \cb14 +  **Design Pattern**: Created private `saveToFile()` helper \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + method. This keeps `addSession()` focused on its core \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + responsibility while making file I/O reusable. Good \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + separation of concerns - if we change how we persist \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (database instead of files), we only touch one method.\cf2 \cb3  \
+     \cf6   118 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   119 \cf7    ## Common Mistakes & Corrections\cf2  \
+     \cf6   120 \cf7    \cf2  \
+     \cf6   121 \cf7    ### Module 1\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 3\cf2  additions                                 \
+     \cf6   127 \cf7    ### Module 3\cf2  \
+     \cf6   128 \cf7    - **None observed** - Clean implementation with proper \cf2  \
+     \cf6       \cf7   encapsulation, correct use of generics, and good defensive \cf2  \
+     \cf6       \cf7   programming instincts.\cf2  \
+     \cf6   129 \cf7    \cf2  \
+     \cf6   130 \cf7 \cb14 +  ### Module 4\cf2 \cb3  \
+     \cf6   131 \cf7 \cb14 +  - **Minor typo**: Initially wrote `"session.txt"` instead \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + of `"sessions.txt"` (missing 's'). Caught quickly and fixed.\cf2 \cb3  \
+     \cf6   132 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   133 \cf7    ## JavaScript vs Java Comparisons\cf2  \
+     \cf6   134 \cf7    \cf2  \
+     \cf6   135 \cf7    ### Arrays\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 8\cf2  additions                                 \
+     \cf6   164 \cf7    - **JS**: `for (const session of sessions)` - works on any \cf2  \
+     \cf6       \cf7   iterable\cf2  \
+     \cf6   165 \cf7    - **Java**: `for (Session session : sessions)` - enhanced \cf2  \
+     \cf6       \cf7   for-loop, type declared explicitly\cf2  \
+     \cf6   166 \cf7    \cf2  \
+     \cf6   167 \cf7 \cb14 +  ### File I/O\cf2 \cb3  \
+     \cf6   168 \cf7 \cb14 +  - **JS**: `fs.writeFileSync('file.txt', data)` or `await \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + fs.promises.writeFile()` - optional error handling\cf2 \cb3  \
+     \cf6   169 \cf7 \cb14 +  - **Java**: `Files.write(path, lines)` - MUST handle \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + IOException, won't compile otherwise\cf2 \cb3  \
+     \cf6   170 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   171 \cf7 \cb14 +  ### Error Handling Philosophy\cf2 \cb3  \
+     \cf6   172 \cf7 \cb14 +  - **JS**: Try the operation, catch errors if they happen \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (optional)\cf2 \cb3  \
+     \cf6   173 \cf7 \cb14 +  - **Java**: Declare what can fail in method signature \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (`throws`), compiler enforces handling\cf2 \cb3  \
+     \cf6   174 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   175 \cf7    ## Review Before Next Session\cf2  \
+     \cf6   176 \cf7    \cf2  \
+     \cf6   177 \cf7    ### What We Built\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 1\cf2  addition                                  \
+     \cf6   178 \cf7    - `PracticeTracker.java` - CLI entry point (Module 1)\cf2  \
+     \cf6   179 \cf7    - `Session.java` - Immutable data model with date and \cf2  \
+     \cf6       \cf7   duration (Module 2)\cf2  \
+     \cf6   180 \cf7    - `SessionManager.java` - Business logic layer managing \cf2  \
+     \cf6       \cf7   collection of sessions (Module 3)\cf2  \
+     \cf6   181 \cf7 \cb14 +  - `sessions.txt` - Persistent storage file with CSV format \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (Module 4)\cf2 \cb3  \
+     \cf6   182 \cf7    \cf2  \
+     \cf6   183 \cf7    ### Key Takeaways\cf2  \
+     \cf6   184 \cf7    - **Manager pattern**: Encapsulates collection and \cf2  \
+     \cf6       \cf7   operations in dedicated class\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 15\cf2  additions and \cf5 7\cf2  removals                 \
+     \cf6   194 \cf7    - ArrayList operations (will iterate when writing to file)\cf2  \
+     \cf6   195 \cf7    - Enhanced for-loop (will use when saving sessions)\cf2  \
+     \cf6   196 \cf7    \cf2  \
+     \cf6   197 \cf7 \cb13 -  ### Ready For Module 4\cf2 \cb3  \
+     \cf6   198 \cf7 \cb13 -  Next we'll add **file persistence - writing**. This will \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - introduce:\cf2 \cb3  \
+     \cf6   199 \cf7 \cb13 -  - File I/O with `java.nio.file` package\cf2 \cb3  \
+     \cf6   200 \cf7 \cb13 -  - `try-with-resources` for automatic resource cleanup\cf2 \cb3  \
+     \cf6   201 \cf7 \cb13 -  - Checked exceptions and why Java forces you to handle them\cf2 \cb3  \
+     \cf6   202 \cf7 \cb13 -  - String formatting for serialization\cf2 \cb3  \
+     \cf6   203 \cf7 \cb13 -  - The difference between in-memory state and persistent \cf2 \cb3  \
+     \cf6       \cf7 \cb13 - storage\cf2 \cb3  \
+     \cf6   197 \cf7 \cb14 +  ### Concepts to Reinforce in Module 5\cf2 \cb3  \
+     \cf6   198 \cf7 \cb14 +  - Checked exceptions (will continue using throws or \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + try-catch)\cf2 \cb3  \
+     \cf6   199 \cf7 \cb14 +  - File I/O with NIO (will use Files.readAllLines or \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + similar)\cf2 \cb3  \
+     \cf6   200 \cf7 \cb14 +  - String manipulation (will parse CSV lines)\cf2 \cb3  \
+     \cf6   201 \cf7 \cb14 +  - ArrayList operations (will load into sessions list)\cf2 \cb3  \
+     \cf6   202 \cf7 \cb14 +  - Enhanced for-loop (will iterate through lines)\cf2 \cb3  \
+     \cf6   203 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   204 \cf7 \cb14 +  ### Ready For Module 5\cf2 \cb3  \
+     \cf6   205 \cf7 \cb14 +  Next we'll add **file persistence - reading**. This will \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + introduce:\cf2 \cb3  \
+     \cf6   206 \cf7 \cb14 +  - Reading files line-by-line with `Files.readAllLines()` or\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  `Files.lines()`\cf2 \cb3  \
+     \cf6   207 \cf7 \cb14 +  - String parsing and splitting (CSV \uc0\u8594  objects)\cf2 \cb3  \
+     \cf6   208 \cf7 \cb14 +  - Type conversion (`String` \uc0\u8594  `int`, `String` \u8594  \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + `LocalDate`)\cf2 \cb3  \
+     \cf6   209 \cf7 \cb14 +  - Handling malformed data gracefully\cf2 \cb3  \
+     \cf6   210 \cf7 \cb14 +  - Constructor that loads existing data (vs starting empty)\cf2 \cb3  \
+     \cf6   211 \cf7 \cb14 +  - The complete persistence cycle: read on startup, write on\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  changes\cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Now let me add a critical note to CLAUDE.md to prevent this type of error: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (CLAUDE.md) \
+  \uc0\u9151  \'a0Updated \cf5 CLAUDE.md\cf2  with \cf5 1\cf2  addition                                    \
+     \cf6   204 \cf7    \cf2  \
+     \cf6   205 \cf7    2. **Create MODULE\{N\}.md** in "Learning Modules/" folder \cf2  \
+     \cf6       \cf7   FIRST\cf2  \
+     \cf6   206 \cf7    \cf2  \
+     \cf6   207 \cf7 \cb14 +     - **CRITICAL - READ SOURCE FILES FIRST**: Before writing\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  testing instructions, READ all relevant source files to \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + understand their CURRENT state. Do NOT assume features are \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + implemented that belong to future modules.\cf2 \cb3  \
+     \cf6   208 \cf7       - Include: learning objectives, key concepts, task \cf2  \
+     \cf6       \cf7   description, hints, common mistakes\cf2  \
+     \cf6   209 \cf7       - Follow the structure established in MODULE1.md\cf2  \
+     \cf6   210 \cf7       - **CRITICAL**: Design for desirable difficulty (see \cf2  \
+     \cf6       \cf7   detailed guidelines below)\cf2  \
+ \
+     \cf5 Tip:\cf2  Use \cf11 # to memorize\cf2  shortcut to quickly add to CLAUDE.md \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Update\cf2 (CLAUDE.md) \
+  \uc0\u9151  \'a0Updated \cf5 CLAUDE.md\cf2  with \cf5 23\cf2  additions                                  \
+     \cf6   284 \cf7    \cf2  \
+     \cf6   285 \cf7    **CRITICAL**: The user is a senior engineer. They need to \cf2  \
+     \cf6       \cf7   understand WHY and WHAT, not copy-paste HOW.\cf2  \
+     \cf6   286 \cf7    \cf2  \
+     \cf6   287 \cf7 \cb14 +  ### CRITICAL: Read Source Files Before Writing Testing \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + Instructions\cf2 \cb3  \
+     \cf6   288 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   289 \cf7 \cb14 +  **Problem Identified**: In Module 4, testing instructions \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + were written assuming PracticeTracker handled commands (a \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + Module 6 feature), when it actually just prints arguments \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + and runs hardcoded test sessions. This required user to \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + correct the instructions twice, disrupting the learning \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + flow.\cf2 \cb3  \
+     \cf6   290 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   291 \cf7 \cb14 +  **Prevention Protocol**:\cf2 \cb3  \
+     \cf6   292 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   293 \cf7 \cb14 +  1. **Before writing MODULE\{N\}.md testing section**, use the\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  Read tool to check:\cf2 \cb3  \
+     \cf6   294 \cf7 \cb14 +     - What does PracticeTracker.java ACTUALLY do right now?\cf2 \cb3  \
+     \cf6   295 \cf7 \cb14 +     - What methods exist in SessionManager.java?\cf2 \cb3  \
+     \cf6   296 \cf7 \cb14 +     - What's the CURRENT state vs. the ASPIRATIONAL state?\cf2 \cb3  \
+     \cf6   297 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   298 \cf7 \cb14 +  2. **Testing instructions must match CURRENT \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + implementation**, not future modules:\cf2 \cb3  \
+     \cf6   299 \cf7 \cb14 +     - \uc0\u10060  Bad: "Run `java PracticeTracker add 45` to add a \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + session" (if command routing isn't implemented yet)\cf2 \cb3  \
+     \cf6   300 \cf7 \cb14 +     - \uc0\u9989  Good: "Run `java PracticeTracker` - it uses \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + hardcoded test sessions for now"\cf2 \cb3  \
+     \cf6   301 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   302 \cf7 \cb14 +  3. **When in doubt, READ THE FILES**:\cf2 \cb3  \
+     \cf6   303 \cf7 \cb14 +     - Don't assume\cf2 \cb3  \
+     \cf6   304 \cf7 \cb14 +     - Don't extrapolate from the roadmap\cf2 \cb3  \
+     \cf6   305 \cf7 \cb14 +     - Don't write aspirational instructions\cf2 \cb3  \
+     \cf6   306 \cf7 \cb14 +     - Read the actual source code and base testing on THAT\cf2 \cb3  \
+     \cf6   307 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   308 \cf7 \cb14 +  This is critical for maintaining learning flow. Inaccurate \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + instructions waste the user's time and break trust in the \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + curriculum.\cf2 \cb3  \
+     \cf6   309 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   310 \cf7    ### The Desirable Difficulties Principle\cf2  \
+     \cf6   311 \cf7    \cf2  \
+     \cf6   312 \cf7    The goal is **productive struggle** - hard enough to \cf2  \
+     \cf6       \cf7   require genuine effort, but not so hard they're completely \cf2  \
+     \cf6       \cf7   lost.\cf2  \
+ \
+     \cf5 Tip:\cf2  Use \cf11 # to memorize\cf2  shortcut to quickly add to CLAUDE.md \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Now let's commit all this work with a clear message: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf10 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session tracker"\
+       && git add -A) \
+  \uc0\u9151  \'a0\cf6 (No content)\cf2  \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session tracker"\
+       && git commit -m "Module 4: File Persistence - Writing\'85) \
+  \uc0\u9151  \'a0[main 22be92c] Module 4: File Persistence - Writing  \
+      6 files changed, 486 insertions(+), 12 deletions(-) \
+      create mode 100644 Learning Modules/MODULE4.md \
+      create mode 100644 sessions.txt \
+ \
+\cf10 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session tracker"\
+       && git status) \
+  \uc0\u9151  \'a0On branch main                                     \
+     Your branch is ahead of 'origin/main' by 1 commit. \
+       (use "git push" to publish your local commits) \
+     \cf12 \'85 +2 lines (ctrl+o to expand)\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Everything is committed. Let me summarize what we accomplished: \
+ \
+  --- \
+  \cf5 \uc0\u9989  Module 4 Complete!\cf2  \
+ \
+  \cf12 What You Implemented\cf2  \
+ \
+  \cf5 SessionManager.java\cf2  now has file persistence: \
+  - Private \cf11 saveToFile()\cf2  method that writes all sessions to \cf11 sessions.txt\cf2  \
+  - Modified \cf11 addSession()\cf2  to save after each addition \
+  - Uses \cf11 java.nio.file\cf2  APIs (Path, Paths, Files.write) \
+  - Declares \cf11 throws IOException\cf2  to propagate exceptions up the call chain \
+  - Clean CSV format: \cf11 date,duration\cf2  per line \
+ \
+  \cf12 What You Learned\cf2  \
+ \
+  \cf5 New Java Concepts:\cf2  \
+  - \uc0\u9989  \cf5 Checked Exceptions\cf2  - Compile-time contracts that force error handling \
+  - \uc0\u9989  \cf5 Exception Propagation\cf2  - Using \cf11 throws\cf2  to pass responsibility to \
+  callers \
+  - \uc0\u9989  \cf5 Java NIO\cf2  - Modern file I/O with Path, Paths, Files \
+  - \uc0\u9989  \cf5 Automatic Resource Management\cf2  - Files.write() handles all the cleanup \
+ \
+  \cf5 Key Insight:\cf2  \
+  Java's philosophy: prove you have a plan for failures BEFORE you compile. \
+  JavaScript lets you ship code that crashes mysteriously. Java prevents \
+  that code from existing in the first place. \
+ \
+  \cf12 Process Improvement Made\cf2  \
+ \
+  I added a critical section to CLAUDE.md (lines 287-308) to prevent the \
+  testing instruction errors that disrupted your learning flow: \
+ \
+  \cf5 The Issue:\cf2  I wrote testing instructions assuming PracticeTracker handled \
+  commands (Module 6) when it's still just a test harness. \
+ \
+  \cf5 The Fix:\cf2  New protocol requires reading source files BEFORE writing testing \
+   instructions. Never assume implementation state - always verify. \
+ \
+  This ensures future module documentation will be accurate and won't waste \
+  your time with corrections. \
+ \
+  --- \
+  \cf11 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Meta-Learning: Feedback Loops in Learning Systems\cf2  \
+ \
+  What just happened is exactly how good learning systems should work: \
+  1. You encountered friction (inaccurate testing instructions) \
+  2. You gave feedback (pointed it out twice) \
+  3. System adapted (protocol added to prevent recurrence) \
+ \
+  This is the scientific method applied to pedagogy. The curriculum isn't \
+  static - it evolves based on what actually works vs. what we thought would \
+   work. \
+ \
+  Your feedback improved the system for future modules. That's valuable. \
+  \cf11 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf5 You're now 4/7 modules complete!\cf2  Sessions now persist. Next up: Module 5 \
+  will load those sessions back when the app starts, completing the \
+  persistence cycle. \
+ \
+  Want to take a break, or ready to continue to Module 5? \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > i'm going to start module 5 in a new claude session, could you give me a \cf2 \cb3  \
+\cf7 \cb8 prompt for that? \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Here's a prompt you can use to start your next session: \
+ \
+  --- \
+  I'm ready to start Module 5 of my Java learning journey. Please read \
+  @CLAUDE.md, @LEARNING.md, @PROJECT_ROADMAP.md, and @Learning  \
+  Modules/MODULE5.md (if it exists) to understand where I am and what we're  \
+  working on. \
+ \
+  I've completed: \
+  - Module 1: Project Setup & Basic Structure \uc0\u9989  \
+  - Module 2: Session Data Model \uc0\u9989  \
+  - Module 3: SessionManager - Core Logic \uc0\u9989  \
+  - Module 4: File Persistence - Writing \uc0\u9989  \
+ \
+  Sessions now persist to sessions.txt in CSV format. Next, I need to  \
+  implement loading sessions from the file when the app starts. \
+ \
+  Let's begin Module 5: File Persistence - Reading. \
+ \
+  --- \
+  This will give the new Claude instance all the context it needs to: \
+  1. Read your learning history and understand what you know \
+  2. Check what's been implemented so far \
+  3. Create MODULE5.md with accurate instructions (following the new \
+  protocol we added!) \
+  4. Guide you through implementing file reading \
+ \
+  Great work today on Module 4! \uc0\u55357 \u56960  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf21 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+> \
+\cf21 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+  \cf6 ? for shortcuts\cf2                                   \cf11 Thinking on (tab to toggle)\cf2  \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+}
