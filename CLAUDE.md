@@ -204,6 +204,7 @@ Each module must be designed with these cognitive principles in mind:
 
 2. **Create MODULE{N}.md** in "Learning Modules/" folder FIRST
 
+   - **CRITICAL - READ SOURCE FILES FIRST**: Before writing testing instructions, READ all relevant source files to understand their CURRENT state. Do NOT assume features are implemented that belong to future modules.
    - Include: learning objectives, key concepts, task description, hints, common mistakes
    - Follow the structure established in MODULE1.md
    - **CRITICAL**: Design for desirable difficulty (see detailed guidelines below)
@@ -282,6 +283,29 @@ Each module must be designed with these cognitive principles in mind:
 ## MODULE{N}.md Structure Guidelines
 
 **CRITICAL**: The user is a senior engineer. They need to understand WHY and WHAT, not copy-paste HOW.
+
+### CRITICAL: Read Source Files Before Writing Testing Instructions
+
+**Problem Identified**: In Module 4, testing instructions were written assuming PracticeTracker handled commands (a Module 6 feature), when it actually just prints arguments and runs hardcoded test sessions. This required user to correct the instructions twice, disrupting the learning flow.
+
+**Prevention Protocol**:
+
+1. **Before writing MODULE{N}.md testing section**, use the Read tool to check:
+   - What does PracticeTracker.java ACTUALLY do right now?
+   - What methods exist in SessionManager.java?
+   - What's the CURRENT state vs. the ASPIRATIONAL state?
+
+2. **Testing instructions must match CURRENT implementation**, not future modules:
+   - ❌ Bad: "Run `java PracticeTracker add 45` to add a session" (if command routing isn't implemented yet)
+   - ✅ Good: "Run `java PracticeTracker` - it uses hardcoded test sessions for now"
+
+3. **When in doubt, READ THE FILES**:
+   - Don't assume
+   - Don't extrapolate from the roadmap
+   - Don't write aspirational instructions
+   - Read the actual source code and base testing on THAT
+
+This is critical for maintaining learning flow. Inaccurate instructions waste the user's time and break trust in the curriculum.
 
 ### The Desirable Difficulties Principle
 

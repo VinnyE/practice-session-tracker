@@ -1,8 +1,9 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class PracticeTracker {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length == 2) {
             System.out.println("Command: " + args[0]);
             System.out.println("Argument: " + args[1]);

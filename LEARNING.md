@@ -27,14 +27,15 @@
 - **Accumulator Pattern**: ✅ Understood - Initialize, loop, accumulate (sum/count/etc)
 - **Defensive Copying**: ✅ Understood - Return copies to protect internal state
 - **Separation of Concerns**: ✅ Understood - Data model vs business logic vs UI layers
-- **File I/O**: 🌱 Not started
-- **Exception Handling**: 🌱 Not started
+- **Checked Exceptions**: ✅ Understood - Must handle or declare `throws`, enforced at compile time
+- **File I/O (NIO)**: ✅ Understood - Path, Paths, Files APIs for modern Java file operations
+- **Exception Propagation**: ✅ Understood - Using `throws` to let exceptions bubble up call stack
 
 ## Project Modules Completed
 - [x] Module 1: Project Setup & Basic Structure
 - [x] Module 2: Session Data Model
 - [x] Module 3: SessionManager - Core Logic
-- [ ] Module 4: File Persistence - Writing
+- [x] Module 4: File Persistence - Writing
 - [ ] Module 5: File Persistence - Reading
 - [ ] Module 6: Commands Implementation
 - [ ] Module 7: Polish & Error Handling
@@ -71,6 +72,18 @@
 - **Defensive Copy**: `new ArrayList<>(this.sessions)` - copy constructor protects internal state
 - **Separation of Concerns**: Session (data) + SessionManager (logic) + PracticeTracker (UI)
 
+### Module 4: File Persistence - Writing
+- **java.nio.file Package**: Modern file I/O APIs - Path, Paths, Files
+- **Path Interface**: Type-safe representation of file system paths (vs raw strings)
+- **Paths.get()**: Factory method to create Path objects from strings
+- **Files.write()**: High-level method to write List<String> to file, one element per line
+- **Checked Exceptions**: IOException must be caught or declared with `throws`
+- **Exception Propagation**: `throws IOException` in method signature passes responsibility to caller
+- **Private Helper Methods**: `saveToFile()` as private method for separation of concerns
+- **CSV Serialization**: Converting objects to text format (date,duration per line)
+- **Call Chain**: saveToFile() → addSession() → main(), each declares throws
+- **Automatic Resource Management**: Files.write() handles file handles internally
+
 ## Questions Asked & Insights
 
 ### Module 1
@@ -94,6 +107,15 @@
 
 **Refactoring Experience**: Had working code (array version), identified improvement (type consistency), made the change, verified it works. This is how code evolves - not just "make it work" but "make it right."
 
+### Module 4
+**Insight**: Checked exceptions are compile-time contracts. When a method declares `throws IOException`, it's saying "this operation interacts with the outside world and might fail in ways beyond my control." The compiler forces you to acknowledge this. In JavaScript, you can ignore file I/O failures until they bite you in production. In Java, you can't even compile without a plan.
+
+**Philosophy Comparison**: JavaScript says "be optimistic, handle errors if they happen." Java says "be defensive, prove you have a plan before you ship." Neither is wrong - they optimize for different things. JS optimizes for velocity and flexibility. Java optimizes for reliability and catching bugs before production.
+
+**Key Realization**: Files.write() does SO MUCH under the hood - opens file, creates BufferedWriter, writes lines, flushes buffers, closes handles, all with automatic resource management. In Node.js, you'd handle much of this manually. Java's stdlib gives you high-level operations that "just work" but forces you to handle failures.
+
+**Design Pattern**: Created private `saveToFile()` helper method. This keeps `addSession()` focused on its core responsibility while making file I/O reusable. Good separation of concerns - if we change how we persist (database instead of files), we only touch one method.
+
 ## Common Mistakes & Corrections
 
 ### Module 1
@@ -104,6 +126,9 @@
 
 ### Module 3
 - **None observed** - Clean implementation with proper encapsulation, correct use of generics, and good defensive programming instincts.
+
+### Module 4
+- **Minor typo**: Initially wrote `"session.txt"` instead of `"sessions.txt"` (missing 's'). Caught quickly and fixed.
 
 ## JavaScript vs Java Comparisons
 
@@ -139,12 +164,21 @@
 - **JS**: `for (const session of sessions)` - works on any iterable
 - **Java**: `for (Session session : sessions)` - enhanced for-loop, type declared explicitly
 
+### File I/O
+- **JS**: `fs.writeFileSync('file.txt', data)` or `await fs.promises.writeFile()` - optional error handling
+- **Java**: `Files.write(path, lines)` - MUST handle IOException, won't compile otherwise
+
+### Error Handling Philosophy
+- **JS**: Try the operation, catch errors if they happen (optional)
+- **Java**: Declare what can fail in method signature (`throws`), compiler enforces handling
+
 ## Review Before Next Session
 
 ### What We Built
 - `PracticeTracker.java` - CLI entry point (Module 1)
 - `Session.java` - Immutable data model with date and duration (Module 2)
 - `SessionManager.java` - Business logic layer managing collection of sessions (Module 3)
+- `sessions.txt` - Persistent storage file with CSV format (Module 4)
 
 ### Key Takeaways
 - **Manager pattern**: Encapsulates collection and operations in dedicated class
@@ -160,10 +194,18 @@
 - ArrayList operations (will iterate when writing to file)
 - Enhanced for-loop (will use when saving sessions)
 
-### Ready For Module 4
-Next we'll add **file persistence - writing**. This will introduce:
-- File I/O with `java.nio.file` package
-- `try-with-resources` for automatic resource cleanup
-- Checked exceptions and why Java forces you to handle them
-- String formatting for serialization
-- The difference between in-memory state and persistent storage
+### Concepts to Reinforce in Module 5
+- Checked exceptions (will continue using throws or try-catch)
+- File I/O with NIO (will use Files.readAllLines or similar)
+- String manipulation (will parse CSV lines)
+- ArrayList operations (will load into sessions list)
+- Enhanced for-loop (will iterate through lines)
+
+### Ready For Module 5
+Next we'll add **file persistence - reading**. This will introduce:
+- Reading files line-by-line with `Files.readAllLines()` or `Files.lines()`
+- String parsing and splitting (CSV → objects)
+- Type conversion (`String` → `int`, `String` → `LocalDate`)
+- Handling malformed data gracefully
+- Constructor that loads existing data (vs starting empty)
+- The complete persistence cycle: read on startup, write on changes
