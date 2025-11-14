@@ -30,13 +30,19 @@
 - **Checked Exceptions**: ✅ Understood - Must handle or declare `throws`, enforced at compile time
 - **File I/O (NIO)**: ✅ Understood - Path, Paths, Files APIs for modern Java file operations
 - **Exception Propagation**: ✅ Understood - Using `throws` to let exceptions bubble up call stack
+- **File Reading (NIO)**: ✅ Understood - Files.readAllLines() to read entire file into List<String>
+- **File Existence Check**: ✅ Understood - Files.exists() to safely check before reading
+- **String Parsing**: ✅ Understood - String.split() to parse CSV format into String array
+- **Type Conversion**: ✅ Understood - Integer.parseInt() and LocalDate.parse() for explicit conversions
+- **Deserialization**: ✅ Understood - Converting text back into typed objects (inverse of serialization)
+- **Constructor I/O**: ✅ Understood - Loading state in constructor, declaring throws IOException
 
 ## Project Modules Completed
 - [x] Module 1: Project Setup & Basic Structure
 - [x] Module 2: Session Data Model
 - [x] Module 3: SessionManager - Core Logic
 - [x] Module 4: File Persistence - Writing
-- [ ] Module 5: File Persistence - Reading
+- [x] Module 5: File Persistence - Reading
 - [ ] Module 6: Commands Implementation
 - [ ] Module 7: Polish & Error Handling
 
@@ -84,6 +90,18 @@
 - **Call Chain**: saveToFile() → addSession() → main(), each declares throws
 - **Automatic Resource Management**: Files.write() handles file handles internally
 
+### Module 5: File Persistence - Reading
+- **Files.readAllLines()**: Reads entire file, returns List<String> with one element per line
+- **Files.exists()**: Boolean check for file existence before attempting to read
+- **String.split()**: Parses delimited strings into String arrays (CSV parsing)
+- **Integer.parseInt()**: Explicit conversion from String to int (throws NumberFormatException if invalid)
+- **LocalDate.parse()**: Parses ISO-8601 date strings (YYYY-MM-DD) into LocalDate objects
+- **Deserialization Pattern**: Text → parse → convert types → reconstruct objects
+- **Constructor with I/O**: loadFromFile() called from constructor, which declares throws IOException
+- **State Reconstruction vs State Change**: Loading doesn't trigger persistence (internal sessions.add() vs public addSession())
+- **Round Trip**: Complete persistence cycle: Object → CSV → Object produces same data
+- **Performance Consideration**: Avoid unnecessary file writes during bulk loading operations
+
 ## Questions Asked & Insights
 
 ### Module 1
@@ -116,6 +134,13 @@
 
 **Design Pattern**: Created private `saveToFile()` helper method. This keeps `addSession()` focused on its core responsibility while making file I/O reusable. Good separation of concerns - if we change how we persist (database instead of files), we only touch one method.
 
+### Module 5
+**Insight**: Deserialization is the inverse of serialization - it's the complete round trip. The text format you write must exactly match what you expect to parse. Java's explicit type conversions (`Integer.parseInt()`, `LocalDate.parse()`) throw exceptions immediately if the format is wrong, unlike JavaScript's loose parsing which can silently fail or coerce incorrectly.
+
+**Design Realization**: Public methods (`addSession()`) enforce business logic and side effects (persistence). Internal code can manipulate state directly (`sessions.add()`) when those side effects aren't appropriate. Loading existing data is state *reconstruction*, not state *change*, so it shouldn't trigger the persistence side effect. This distinction matters for performance (avoid redundant writes) and correctness (avoid triggering logs/events for reconstructed state).
+
+**Key Pattern Recognition**: The serialization round trip (object → text → object) is fundamental to all data persistence, whether it's CSV files, JSON APIs, SQL databases, or binary protocols. The concepts learned here (serialize, deserialize, type safety, format consistency) transfer directly to those more complex scenarios.
+
 ## Common Mistakes & Corrections
 
 ### Module 1
@@ -129,6 +154,9 @@
 
 ### Module 4
 - **Minor typo**: Initially wrote `"session.txt"` instead of `"sessions.txt"` (missing 's'). Caught quickly and fixed.
+
+### Module 5
+- **Initial implementation issue**: First version called `this.addSession()` inside `loadFromFile()`, which triggered unnecessary file writes during loading. Recognized the performance issue when prompted and fixed by using `this.sessions.add()` directly instead.
 
 ## JavaScript vs Java Comparisons
 
@@ -201,11 +229,18 @@
 - ArrayList operations (will load into sessions list)
 - Enhanced for-loop (will iterate through lines)
 
-### Ready For Module 5
-Next we'll add **file persistence - reading**. This will introduce:
-- Reading files line-by-line with `Files.readAllLines()` or `Files.lines()`
-- String parsing and splitting (CSV → objects)
-- Type conversion (`String` → `int`, `String` → `LocalDate`)
-- Handling malformed data gracefully
-- Constructor that loads existing data (vs starting empty)
-- The complete persistence cycle: read on startup, write on changes
+### Concepts to Reinforce in Module 6
+- Exception handling (will continue with IOException from file operations)
+- String parsing (will parse command-line arguments)
+- LocalDate operations (will use LocalDate.now() when adding sessions)
+- ArrayList operations (will list sessions, calculate totals)
+- Method calls between classes (PracticeTracker → SessionManager)
+
+### Ready For Module 6
+Next we'll implement **command routing and CLI interface**. This will introduce:
+- Switch statements (or enhanced switch) for command routing
+- Command-line argument parsing and validation
+- String formatting for user-friendly output
+- Integrating all the pieces: CLI → SessionManager → Session → File
+- Converting user input (string duration) to proper types
+- Error messages for invalid commands/arguments
