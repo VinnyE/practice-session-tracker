@@ -1,0 +1,573 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red187\green187\blue187;\red0\green0\blue0;\red221\green90\blue62;
+\red255\green255\blue255;\red135\green135\blue135;\red255\green255\blue255;\red42\green42\blue42;\red0\green180\blue72;
+\red160\green168\blue254;\red0\green0\blue187;\red112\green20\blue40;\red177\green60\blue87;\red0\green77\blue27;
+\red0\green156\blue70;\red81\green81\blue81;\red70\green73\blue108;}
+{\*\expandedcolortbl;;\cspthree\c78104\c78104\c78104;\cspthree\c0\c0\c0;\cspthree\c84314\c46667\c34118;
+\cspthree\c100000\c100000\c100000;\cspthree\c60000\c60000\c60000;\cspthree\c100000\c100000\c100000;\cspthree\c21569\c21569\c21569;\cspthree\c30588\c72941\c39608;
+\cspthree\c69412\c72549\c97647;\cspthree\c4998\c14302\c75097;\cspthree\c47843\c16078\c21176;\cspthree\c70196\c34902\c41961;\cspthree\c13333\c36078\c16863;
+\cspthree\c21961\c65098\c37647;\cspthree\c39052\c39052\c39052;\cspthree\c34706\c36275\c48824;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \ulnone  \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4  \uc0\u9616 \u9627 \u9608 \u9608 \u9608 \u9628 \u9612 \cf2    \cf5 Claude Code\cf2  \cf6 v2.0.37\cf2  \
+\cf4 \uc0\u9629 \u9628 \u9608 \u9608 \u9608 \u9608 \u9608 \u9627 \u9624 \cf2   \cf6 Sonnet 4.5 \'b7 Claude Max\cf2  \
+\cf4   \uc0\u9624 \u9624  \u9629 \u9629   \cf2   \cf6 learning java/practice session tracker\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > I'm ready to start Module 5 of my Java learning journey. Please read \cf2 \cb3  \
+\cf7 \cb8 @CLAUDE.md, @LEARNING.md, @PROJECT_ROADMAP.md, and @Learning \cf2 \cb3  \
+\cf7 \cb8 Modules/MODULE5.md (if it exists) to \cf2 \cb3  \
+\cf7 \cb8   understand where I am and what we're working on.\cf2 \cb3  \
+ \
+\cf7 \cb8   I've completed:\cf2 \cb3  \
+\cf7 \cb8   - Module 1: Project Setup & Basic Structure \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 2: Session Data Model \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 3: SessionManager - Core Logic \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 4: File Persistence - Writing \uc0\u9989 \cf2 \cb3  \
+ \
+\cf7 \cb8   Sessions now persist to sessions.txt in CSV format. Next, I need to \cf2 \cb3  \
+\cf7 \cb8 implement loading sessions from the file when the app starts.\cf2 \cb3  \
+ \
+\cf7 \cb8   Let's begin Module 5: File Persistence - Reading. \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  I'll help you start Module 5! Let me first check the current state of \
+  your source files and see if MODULE5.md exists. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Search\cf2 (pattern: "Learning Modules/MODULE5.md") \
+  \uc0\u9151  \'a0Found \cf5 0 \cf2 files  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 32\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (SessionManager.java) \
+  \uc0\u9151  \'a0Read \cf5 47\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (Session.java) \
+  \uc0\u9151  \'a0Read \cf5 27\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Good! I can see MODULE5.md doesn't exist yet, and I've reviewed your \
+  current code. Let me create the module document first, following the \
+  teaching methodology. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Write\cf2 (Learning Modules/MODULE5.md) \
+  \uc0\u9151  \'a0Wrote \cf5 238\cf2  lines to \cf5 Learning Modules/MODULE5.md\cf2                       \
+     # Module 5: File Persistence - Reading \
+     \cf5 **Estimated Time**\cf2 : 30-45 minutes \
+     ## Learning Objectives \
+     By the end of this module, you will understand: \
+     - How to read files line-by-line in Java using the NIO API \
+     - How to parse structured text (CSV) back into objects \
+     - How to convert strings to other types (`String` \uc0\u8594  `int`, `String` \
+     \uc0\u8594  `LocalDate`) \
+     \cf6 \'85 +228 lines (ctrl+o to expand)\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! I've created \cf5 MODULE5.md\cf2  in your Learning Modules folder. Let \
+  me introduce what we're tackling in this module. \
+ \
+  \cf5 Module 5 Overview: Completing the Persistence Cycle\cf2  \
+ \
+  Right now, your app has a \cf5 one-way street\cf2 : it writes sessions to \
+  \cf10 sessions.txt\cf2 , but when you create a new \cf10 SessionManager\cf2 , it always \
+  starts empty. The data is safely stored on disk, but we're not loading \
+  it back! \
+ \
+  This module completes the \cf5 round trip\cf2 : \
+  Memory \uc0\u8594  Disk \u8594  Memory \
+  Session object \uc0\u8594  "2025-11-10,45" \u8594  Session object \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 The Serialization Round Trip\cf2 : In Module 4, you serialized objects into \
+  text (CSV format). Module 5 is about deserialization - parsing that \
+  text back into typed objects. This is a fundamental concept in all \
+  software: data needs to flow between different representations (memory, \
+   disk, network, databases). \
+ \
+  \cf5 Why Java's Explicitness Matters Here\cf2 : In JavaScript, \cf10 parseInt("45abc")\cf2  \
+  silently returns \cf10 45\cf2 , ignoring invalid characters. Java's \
+  \cf10 Integer.parseInt("45abc")\cf2  throws an exception immediately. When \
+  deserializing data, you want to know if something is wrong, not \
+  silently corrupt your data. Java's explicit conversions are a feature, \
+  not a burden. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf5 What You'll Implement\cf2  \
+ \
+  You'll modify \cf10 SessionManager\cf2 's constructor to: \
+  1. Check if \cf10 sessions.txt\cf2  exists \
+  2. If it exists, read all lines \
+  3. Parse each line: \cf10 "2025-11-10,45"\cf2  \uc0\u8594  split by comma \u8594  convert types \u8594  \
+  create Session \
+  4. Load all sessions into the ArrayList \
+  5. If the file doesn't exist (first run), start with an empty list \
+ \
+  \cf5 Key APIs You'll Use\cf2  \
+ \
+  The module document covers these in detail, but here's the overview: \
+  - \cf10 Files.exists(path)\cf2  - Check if file exists \
+  - \cf10 Files.readAllLines(path)\cf2  - Read entire file, returns \cf10 List<String>\cf2  \
+  - \cf10 String.split(",")\cf2  - Parse CSV lines \
+  - \cf10 Integer.parseInt(string)\cf2  - Convert string to int \
+  - \cf10 LocalDate.parse(string)\cf2  - Convert string to LocalDate (ISO-8601 \
+  format) \
+ \
+  \cf5 Your Task\cf2  \
+ \
+  Read through \cf5 Learning Modules/MODULE5.md\cf2  carefully - it has all the \
+  conceptual explanations, API pointers, and requirements. \
+ \
+  Then implement the loading functionality in \cf10 SessionManager.java\cf2 . You'll \
+   likely want to: \
+  - Create a private helper method \cf10 loadFromFile()\cf2  (similar to \
+  \cf10 saveToFile()\cf2 ) \
+  - Call it from the constructor after initializing the ArrayList \
+  - Handle the exception (either with try-catch or \cf10 throws\cf2 ) \
+ \
+  The module document has testing instructions to verify your round trip \
+  works. \
+ \
+  \cf5 Ready to dive in?\cf2  Read MODULE5.md, then start implementing. I'm here if \
+   you get stuck or have questions about the concepts! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > done! \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! Let's review what you implemented. Please share your updated \
+   \cf10 SessionManager.java\cf2  code so I can see your approach to loading \
+  sessions from the file. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (SessionManager.java) \
+  \uc0\u9151  \'a0Read \cf5 64\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Nice work! I can see you've implemented the core logic. Let me ask a \
+  few questions about your implementation: \
+ \
+  \cf5 Code Review\cf2  \
+ \
+  Your structure looks solid: \
+  - \uc0\u9989  Constructor calls \cf10 loadFromFile()\cf2  \
+  - \uc0\u9989  \cf10 loadFromFile()\cf2  checks if file exists \
+  - \uc0\u9989  Reading with \cf10 Files.readAllLines()\cf2  \
+  - \uc0\u9989  Parsing with \cf10 split()\cf2 , \cf10 LocalDate.parse()\cf2 , and \cf10 Integer.parseInt()\cf2  \
+  - \uc0\u9989  Proper exception propagation with \cf10 throws IOException\cf2  \
+ \
+  \cf5 Before we go further\cf2 : Did you test it? What happened when you ran it? \
+ \
+  Also, I want to draw your attention to \cf5 line 40\cf2 : \
+ \
+  \cf11 this\cf2 .addSession(\cf11 new\cf2  Session(date, duration)); \
+ \
+  Can you walk me through what happens when this line executes during the \
+   loading process? Specifically: \
+  1. What does \cf10 addSession()\cf2  do? (look at its implementation) \
+  2. Is that what you want to happen while loading existing sessions from \
+   the file? \
+  3. What might be a consequence of this approach if you're loading 100 \
+  sessions? \
+ \
+  Think about it for a moment - I suspect you'll spot something \
+  interesting here. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yep, i tested it and got the 3 sessions like so: \cf2 \cb3  \
+\cf7 \cb8 Session\{date=2025-11-14, duration=45\}\cf2 \cb3  \
+\cf7 \cb8 Session\{date=2025-11-10, duration=60\}\cf2 \cb3  \
+\cf7 \cb8 Session\{date=2025-11-09, duration=30\}\cf2 \cb3  \
+\cf7 \cb8 Total minutes: 135.\\\cf2 \cb3  \
+\cf7 \cb8 \\\cf2 \cb3  \
+\cf7 \cb8 and you're right, this.addSession() is calling saveToFile() in the same \cf2 \cb3  \
+\cf7 \cb8 function, i could clean that up! \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Exactly! You've spotted a subtle but important issue. Let me break down \
+   what's happening: \
+ \
+  \cf5 Current behavior when loading 3 sessions:\cf2  \
+  1. Read line 1 \uc0\u8594  parse \u8594  \cf10 addSession()\cf2  \uc0\u8594  add to ArrayList \u8594  \cf5 write entire\cf2  \
+  \cf5  file\cf2  \
+  2. Read line 2 \uc0\u8594  parse \u8594  \cf10 addSession()\cf2  \uc0\u8594  add to ArrayList \u8594  \cf5 write entire\cf2  \
+  \cf5  file\cf2  \
+  3. Read line 3 \uc0\u8594  parse \u8594  \cf10 addSession()\cf2  \uc0\u8594  add to ArrayList \u8594  \cf5 write entire\cf2  \
+  \cf5  file\cf2  \
+ \
+  So you're writing the file 3 times during a load operation! With 100 \
+  sessions, you'd write 100 times. That's a lot of unnecessary disk I/O. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Side Effects in Methods\cf2 : \cf10 addSession()\cf2  has a side effect - it doesn't \
+  just modify the ArrayList, it also writes to disk. This is intentional \
+  for the normal "add a new session" use case, but problematic when \
+  you're reconstructing state from the file. \
+ \
+  \cf5 The Principle\cf2 : When loading existing data, you're reconstructing state, \
+   not changing state. You don't need to persist what's already \
+  persisted. This distinction matters for performance and correctness. \
+ \
+  \cf5 Pattern Recognition\cf2 : This is similar to the difference between a \
+  constructor (setting up initial state) vs a setter (changing existing \
+  state). One might validate/persist, the other might not. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf5 Your Fix\cf2  \
+ \
+  Go ahead and update \cf10 loadFromFile()\cf2  to avoid the unnecessary file \
+  writes. You have direct access to the \cf10 sessions\cf2  ArrayList from within \
+  the \cf10 SessionManager\cf2  class - use it! \
+ \
+  Make the change, recompile, test again to ensure it still works, and \
+  share the updated code. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > fixed \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (SessionManager.java) \
+  \uc0\u9151  \'a0Read \cf5 64\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Line 40 now uses \cf10 this.sessions.add()\cf2  directly instead of \
+  calling \cf10 addSession()\cf2 . This is exactly right. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Public vs Private Operations\cf2 : Notice the pattern here: \
+  - \cf10 addSession()\cf2  (public) = business operation with side effects (add + \
+  persist) \
+  - Direct \cf10 sessions.add()\cf2  (private, internal) = state manipulation only \
+ \
+  This is a common pattern in Java: public methods enforce invariants and \
+   trigger side effects (validation, persistence, notifications), while \
+  internal code can manipulate state directly when those side effects \
+  aren't needed. \
+ \
+  \cf5 Design Wisdom\cf2 : If you later decide to add logging to \cf10 addSession()\cf2  \
+  (e.g., "Session added at 2:30pm"), you wouldn't want that log entry for \
+   every session loaded from file. Separating "user action" from "state \
+  reconstruction" prevents these kinds of issues. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf5 Verification\cf2  \
+ \
+  Now test it one more time to make sure the round trip still works: \
+ \
+  javac *.java && java PracticeTracker \
+ \
+  Confirm you see the same output (3 sessions, 135 total minutes). If \
+  that works, we're ready to wrap up Module 5! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yep same output all good \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent work! You've successfully completed Module 5. The persistence \
+   cycle is now complete - your app can write to disk AND read from disk. \
+ \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 What You Just Built\cf2 : You implemented the fundamental data persistence \
+  pattern used everywhere in software: \
+ \
+  1. \cf5 Serialization\cf2  (Module 4): Object \uc0\u8594  Text representation \
+  2. \cf5 Deserialization\cf2  (Module 5): Text \uc0\u8594  Object reconstruction \
+  3. \cf5 State vs Changes\cf2 : Load reconstructs state silently; user actions \
+  trigger persistence \
+ \
+  This same pattern applies whether you're working with: \
+  - CSV files (what you just did) \
+  - JSON APIs (serialize to JSON, deserialize responses) \
+  - Databases (ORM frameworks serialize objects to SQL rows, deserialize \
+  query results back to objects) \
+  - Network protocols (Protocol Buffers, gRPC, etc.) \
+ \
+  \cf5 The Type Safety Win\cf2 : Every step was explicit - \cf10 String.split()\cf2 , \
+  \cf10 Integer.parseInt()\cf2 , \cf10 LocalDate.parse()\cf2 . If the data format is wrong, \
+  you'll know immediately with a clear exception, not silent corruption. \
+  This is Java's philosophy in action. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  Now let me update your learning journal and create a git commit to \
+  checkpoint this progress. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Read \cf5 39\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 1\cf2  addition and \cf5 1\cf2  removal   \
+     \cf6   36 \cf7    - [x] Module 2: Session Data Model\cf2  \
+     \cf6   37 \cf7    - [x] Module 3: SessionManager - Core Logic\cf2  \
+     \cf6   38 \cf7    - [x] Module 4: File Persistence - Writing\cf2  \
+     \cf6   39 \cf2 \cb12 -  \cf7 - [\cb13  \cb12 ] Module 5: File Persistence - Reading\cf2 \cb3  \
+     \cf6   39 \cf2 \cb14 +  \cf7 - [\cb15 x\cb14 ] Module 5: File Persistence - Reading\cf2 \cb3  \
+     \cf6   40 \cf7    - [ ] Module 6: Commands Implementation\cf2  \
+     \cf6   41 \cf7    - [ ] Module 7: Polish & Error Handling\cf2  \
+     \cf6   42 \cf7    \cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 6\cf2  additions                              \
+     \cf6   30 \cf7    - **Checked Exceptions**: \uc0\u9989  Understood - Must handle or \cf2  \
+     \cf6      \cf7   declare `throws`, enforced at compile time\cf2  \
+     \cf6   31 \cf7    - **File I/O (NIO)**: \uc0\u9989  Understood - Path, Paths, Files \cf2  \
+     \cf6      \cf7   APIs for modern Java file operations\cf2  \
+     \cf6   32 \cf7    - **Exception Propagation**: \uc0\u9989  Understood - Using \cf2  \
+     \cf6      \cf7   `throws` to let exceptions bubble up call stack\cf2  \
+     \cf6   33 \cf7 \cb14 +  - **File Reading (NIO)**: \uc0\u9989  Understood - \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + Files.readAllLines() to read entire file into List<String>\cf2 \cb3  \
+     \cf6   34 \cf7 \cb14 +  - **File Existence Check**: \uc0\u9989  Understood - \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + Files.exists() to safely check before reading\cf2 \cb3  \
+     \cf6   35 \cf7 \cb14 +  - **String Parsing**: \uc0\u9989  Understood - String.split() to \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + parse CSV format into String array\cf2 \cb3  \
+     \cf6   36 \cf7 \cb14 +  - **Type Conversion**: \uc0\u9989  Understood - Integer.parseInt()\cf2 \cb3  \
+     \cf6      \cf7 \cb14 +  and LocalDate.parse() for explicit conversions\cf2 \cb3  \
+     \cf6   37 \cf7 \cb14 +  - **Deserialization**: \uc0\u9989  Understood - Converting text \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + back into typed objects (inverse of serialization)\cf2 \cb3  \
+     \cf6   38 \cf7 \cb14 +  - **Constructor I/O**: \uc0\u9989  Understood - Loading state in \cf2 \cb3  \
+     \cf6      \cf7 \cb14 + constructor, declaring throws IOException\cf2 \cb3  \
+     \cf6   39 \cf7    \cf2  \
+     \cf6   40 \cf7    ## Project Modules Completed\cf2  \
+     \cf6   41 \cf7    - [x] Module 1: Project Setup & Basic Structure\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 12\cf2  additions                             \
+     \cf6    90 \cf7    - **Call Chain**: saveToFile() \uc0\u8594  addSession() \u8594  main(), \cf2  \
+     \cf6       \cf7   each declares throws\cf2  \
+     \cf6    91 \cf7    - **Automatic Resource Management**: Files.write() \cf2  \
+     \cf6       \cf7   handles file handles internally\cf2  \
+     \cf6    92 \cf7    \cf2  \
+     \cf6    93 \cf7 \cb14 +  ### Module 5: File Persistence - Reading\cf2 \cb3  \
+     \cf6    94 \cf7 \cb14 +  - **Files.readAllLines()**: Reads entire file, returns \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + List<String> with one element per line\cf2 \cb3  \
+     \cf6    95 \cf7 \cb14 +  - **Files.exists()**: Boolean check for file existence \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + before attempting to read\cf2 \cb3  \
+     \cf6    96 \cf7 \cb14 +  - **String.split()**: Parses delimited strings into \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + String arrays (CSV parsing)\cf2 \cb3  \
+     \cf6    97 \cf7 \cb14 +  - **Integer.parseInt()**: Explicit conversion from \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + String to int (throws NumberFormatException if invalid)\cf2 \cb3  \
+     \cf6    98 \cf7 \cb14 +  - **LocalDate.parse()**: Parses ISO-8601 date strings \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (YYYY-MM-DD) into LocalDate objects\cf2 \cb3  \
+     \cf6    99 \cf7 \cb14 +  - **Deserialization Pattern**: Text \uc0\u8594  parse \u8594  convert \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + types \uc0\u8594  reconstruct objects\cf2 \cb3  \
+     \cf6   100 \cf7 \cb14 +  - **Constructor with I/O**: loadFromFile() called from \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + constructor, which declares throws IOException\cf2 \cb3  \
+     \cf6   101 \cf7 \cb14 +  - **State Reconstruction vs State Change**: Loading \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + doesn't trigger persistence (internal sessions.add() vs \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + public addSession())\cf2 \cb3  \
+     \cf6   102 \cf7 \cb14 +  - **Round Trip**: Complete persistence cycle: Object \uc0\u8594  \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + CSV \uc0\u8594  Object produces same data\cf2 \cb3  \
+     \cf6   103 \cf7 \cb14 +  - **Performance Consideration**: Avoid unnecessary file \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + writes during bulk loading operations\cf2 \cb3  \
+     \cf6   104 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   105 \cf7    ## Questions Asked & Insights\cf2  \
+     \cf6   106 \cf7    \cf2  \
+     \cf6   107 \cf7    ### Module 1\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 3\cf2  additions                              \
+     \cf6   148 \cf7    ### Module 4\cf2  \
+     \cf6   149 \cf7    - **Minor typo**: Initially wrote `"session.txt"` \cf2  \
+     \cf6       \cf7   instead of `"sessions.txt"` (missing 's'). Caught quickly\cf2  \
+     \cf6       \cf7    and fixed.\cf2  \
+     \cf6   150 \cf7    \cf2  \
+     \cf6   151 \cf7 \cb14 +  ### Module 5\cf2 \cb3  \
+     \cf6   152 \cf7 \cb14 +  - **Initial implementation issue**: First version called\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  `this.addSession()` inside `loadFromFile()`, which \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + triggered unnecessary file writes during loading. \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + Recognized the performance issue when prompted and fixed \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + by using `this.sessions.add()` directly instead.\cf2 \cb3  \
+     \cf6   153 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   154 \cf7    ## JavaScript vs Java Comparisons\cf2  \
+     \cf6   155 \cf7    \cf2  \
+     \cf6   156 \cf7    ### Arrays\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 7\cf2  additions                              \
+     \cf6   134 \cf7    \cf2  \
+     \cf6   135 \cf7    **Design Pattern**: Created private `saveToFile()` \cf2  \
+     \cf6       \cf7   helper method. This keeps `addSession()` focused on its \cf2  \
+     \cf6       \cf7   core responsibility while making file I/O reusable. Good \cf2  \
+     \cf6       \cf7   separation of concerns - if we change how we persist \cf2  \
+     \cf6       \cf7   (database instead of files), we only touch one method.\cf2  \
+     \cf6   136 \cf7    \cf2  \
+     \cf6   137 \cf7 \cb14 +  ### Module 5\cf2 \cb3  \
+     \cf6   138 \cf7 \cb14 +  **Insight**: Deserialization is the inverse of \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + serialization - it's the complete round trip. The text \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + format you write must exactly match what you expect to \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + parse. Java's explicit type conversions \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (`Integer.parseInt()`, `LocalDate.parse()`) throw \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + exceptions immediately if the format is wrong, unlike \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + JavaScript's loose parsing which can silently fail or \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + coerce incorrectly.\cf2 \cb3  \
+     \cf6   139 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   140 \cf7 \cb14 +  **Design Realization**: Public methods (`addSession()`) \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + enforce business logic and side effects (persistence). \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + Internal code can manipulate state directly \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + (`sessions.add()`) when those side effects aren't \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + appropriate. Loading existing data is state \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + *reconstruction*, not state *change*, so it shouldn't \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + trigger the persistence side effect. This distinction \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + matters for performance (avoid redundant writes) and \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + correctness (avoid triggering logs/events for \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + reconstructed state).\cf2 \cb3  \
+     \cf6   141 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   142 \cf7 \cb14 +  **Key Pattern Recognition**: The serialization round \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + trip (object \uc0\u8594  text \u8594  object) is fundamental to all data \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + persistence, whether it's CSV files, JSON APIs, SQL \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + databases, or binary protocols. The concepts learned here\cf2 \cb3  \
+     \cf6       \cf7 \cb14 +  (serialize, deserialize, type safety, format \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + consistency) transfer directly to those more complex \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + scenarios.\cf2 \cb3  \
+     \cf6   143 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   144 \cf7    ## Common Mistakes & Corrections\cf2  \
+     \cf6   145 \cf7    \cf2  \
+     \cf6   146 \cf7    ### Module 1\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 15\cf2  additions and \cf5 8\cf2  removals              \
+     \cf6   229 \cf7    - ArrayList operations (will load into sessions list)\cf2  \
+     \cf6   230 \cf7    - Enhanced for-loop (will iterate through lines)\cf2  \
+     \cf6   231 \cf7    \cf2  \
+     \cf6   232 \cf7 \cb12 -  ### Ready For Module 5\cf2 \cb3  \
+     \cf6   233 \cf7 \cb12 -  Next we'll add **file persistence - reading**. This will\cf2 \cb3  \
+     \cf6       \cf7 \cb12 -  introduce:\cf2 \cb3  \
+     \cf6   234 \cf7 \cb12 -  - Reading files line-by-line with `Files.readAllLines()`\cf2 \cb3  \
+     \cf6       \cf7 \cb12 -  or `Files.lines()`\cf2 \cb3  \
+     \cf6   235 \cf7 \cb12 -  - String parsing and splitting (CSV \uc0\u8594  objects)\cf2 \cb3  \
+     \cf6   236 \cf7 \cb12 -  - Type conversion (`String` \uc0\u8594  `int`, `String` \u8594  \cf2 \cb3  \
+     \cf6       \cf7 \cb12 - `LocalDate`)\cf2 \cb3  \
+     \cf6   237 \cf7 \cb12 -  - Handling malformed data gracefully\cf2 \cb3  \
+     \cf6   238 \cf7 \cb12 -  - Constructor that loads existing data (vs starting \cf2 \cb3  \
+     \cf6       \cf7 \cb12 - empty)\cf2 \cb3  \
+     \cf6   239 \cf7 \cb12 -  - The complete persistence cycle: read on startup, write\cf2 \cb3  \
+     \cf6       \cf7 \cb12 -  on changes\cf2 \cb3  \
+     \cf6   232 \cf7 \cb14 +  ### Concepts to Reinforce in Module 6\cf2 \cb3  \
+     \cf6   233 \cf7 \cb14 +  - Exception handling (will continue with IOException \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + from file operations)\cf2 \cb3  \
+     \cf6   234 \cf7 \cb14 +  - String parsing (will parse command-line arguments)\cf2 \cb3  \
+     \cf6   235 \cf7 \cb14 +  - LocalDate operations (will use LocalDate.now() when \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + adding sessions)\cf2 \cb3  \
+     \cf6   236 \cf7 \cb14 +  - ArrayList operations (will list sessions, calculate \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + totals)\cf2 \cb3  \
+     \cf6   237 \cf7 \cb14 +  - Method calls between classes (PracticeTracker \uc0\u8594  \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + SessionManager)\cf2 \cb3  \
+     \cf6   238 \cf7 \cb14 +  \cf2 \cb3  \
+     \cf6   239 \cf7 \cb14 +  ### Ready For Module 6\cf2 \cb3  \
+     \cf6   240 \cf7 \cb14 +  Next we'll implement **command routing and CLI \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + interface**. This will introduce:\cf2 \cb3  \
+     \cf6   241 \cf7 \cb14 +  - Switch statements (or enhanced switch) for command \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + routing\cf2 \cb3  \
+     \cf6   242 \cf7 \cb14 +  - Command-line argument parsing and validation\cf2 \cb3  \
+     \cf6   243 \cf7 \cb14 +  - String formatting for user-friendly output\cf2 \cb3  \
+     \cf6   244 \cf7 \cb14 +  - Integrating all the pieces: CLI \uc0\u8594  SessionManager \u8594  \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + Session \uc0\u8594  File\cf2 \cb3  \
+     \cf6   245 \cf7 \cb14 +  - Converting user input (string duration) to proper \cf2 \cb3  \
+     \cf6       \cf7 \cb14 + types\cf2 \cb3  \
+     \cf6   246 \cf7 \cb14 +  - Error messages for invalid commands/arguments\cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Now let's checkpoint this progress with a git commit: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Bash\cf2 (git status) \
+  \uc0\u9151  \'a0On branch main                                \
+     Your branch is up to date with 'origin/main'. \
+     \cf16 \'85 +14 lines (ctrl+o to expand)\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Bash\cf2 (git add "Learning Modules/MODULE5.md" SessionManager.java LEARNING.md \
+      && git commit -m "Module 5: File Persistence - Reading\'85) \
+  \uc0\u9151  \'a0[main c06f114] Module 5: File Persistence - Reading  \
+      3 files changed, 301 insertions(+), 12 deletions(-) \
+      create mode 100644 Learning Modules/MODULE5.md \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! Module 5 is complete and committed. \
+ \
+  \cf5 What You Accomplished\cf2  \
+ \
+  \uc0\u9989  \cf5 Complete persistence cycle\cf2 : Your app now loads sessions on startup \
+  and saves on changes\uc0\u9989  \cf5 Deserialization mastery\cf2 : Text \uc0\u8594  Objects with \
+  explicit type conversions\uc0\u9989  \cf5 Performance awareness\cf2 : Recognized and fixed \
+   unnecessary file writes during loading\uc0\u9989  \cf5 Pattern understanding\cf2 : State \
+  reconstruction (loading) vs state change (adding) \
+ \
+  Your \cf10 SessionManager\cf2  is now fully functional with persistence - it "just \
+   works" when you create it, automatically loading any existing data. \
+ \
+  \cf5 Module 6 Preview: Commands Implementation\cf2  \
+ \
+  Next up, we'll wire up the actual CLI commands so you can run: \
+  - \cf10 java PracticeTracker add 45\cf2  - Add a session with today's date \
+  - \cf10 java PracticeTracker list\cf2  - See all sessions nicely formatted \
+  - \cf10 java PracticeTracker total\cf2  - See total practice time \
+ \
+  This is where everything comes together - the CLI will route commands \
+  to SessionManager, which uses Session objects and persists to the file. \
+ \
+  \cf5 Are you ready to start Module 6\cf2 , or would you like to take a break \
+  first? \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > i'm going to start Module 6 in another claude session, could you give \cf2 \cb3  \
+\cf7 \cb8 me a prompt for that? \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Here's a prompt for your next Claude session: \
+ \
+  --- \
+  I'm ready to start Module 6 of my Java learning journey. Please read \
+  @CLAUDE.md, @LEARNING.md, and @PROJECT_ROADMAP.md to understand where I \
+   am and what we're working on. \
+ \
+  I've completed: \
+  - Module 1: Project Setup & Basic Structure \uc0\u9989  \
+  - Module 2: Session Data Model \uc0\u9989  \
+  - Module 3: SessionManager - Core Logic \uc0\u9989  \
+  - Module 4: File Persistence - Writing \uc0\u9989  \
+  - Module 5: File Persistence - Reading \uc0\u9989  \
+ \
+  My app now has complete persistence - sessions load from \cf10 sessions.txt\cf2  \
+  on startup and save on changes. The SessionManager is fully functional. \
+ \
+  Next, I need to implement the actual CLI commands so I can run: \
+  - \cf10 java PracticeTracker add 45\cf2  - Add a session with today's date \
+  - \cf10 java PracticeTracker list\cf2  - Display all sessions \
+  - \cf10 java PracticeTracker total\cf2  - Show total practice time \
+ \
+  Let's begin Module 6: Commands Implementation. \
+ \
+  --- \
+  This gives the new session all the context it needs to pick up exactly \
+  where you left off. Good luck with Module 6! \uc0\u55357 \u56960  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf17 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+> \
+\cf17 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+  \cf6 ? for shortcuts\cf2                                \cf10 Thinking on (tab to toggle)\cf2  \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+}
