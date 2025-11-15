@@ -36,6 +36,13 @@
 - **Type Conversion**: ✅ Understood - Integer.parseInt() and LocalDate.parse() for explicit conversions
 - **Deserialization**: ✅ Understood - Converting text back into typed objects (inverse of serialization)
 - **Constructor I/O**: ✅ Understood - Loading state in constructor, declaring throws IOException
+- **Switch Statements**: ✅ Understood - Pattern matching for command routing, uses break to prevent fall-through
+- **String Comparison**: ✅ Understood - Must use .equals() not ==, switch handles internally
+- **NumberFormatException**: ✅ Understood - Thrown by parseInt() when string isn't valid number
+- **Integer Division & Modulo**: ✅ Understood - / truncates, % gives remainder (for hours/minutes calculation)
+- **User vs Debug Output**: ✅ Understood - toString() for debugging, separate formatting for users
+- **Exception Handling Levels**: ✅ Understood - Can catch locally or propagate via throws declaration
+- **Empty Collection Checks**: ✅ Understood - Check size() == 0 to provide helpful messages
 
 ## Project Modules Completed
 - [x] Module 1: Project Setup & Basic Structure
@@ -43,7 +50,7 @@
 - [x] Module 3: SessionManager - Core Logic
 - [x] Module 4: File Persistence - Writing
 - [x] Module 5: File Persistence - Reading
-- [ ] Module 6: Commands Implementation
+- [x] Module 6: Commands Implementation
 - [ ] Module 7: Polish & Error Handling
 
 ## Concepts Covered
@@ -102,6 +109,25 @@
 - **Round Trip**: Complete persistence cycle: Object → CSV → Object produces same data
 - **Performance Consideration**: Avoid unnecessary file writes during bulk loading operations
 
+### Module 6: Commands Implementation
+- **Switch Statements**: `switch (value) { case "x": ... break; }` - route execution based on value
+- **Break Statement**: Prevents "fall-through" to next case in switch
+- **Default Case**: Catch-all for unmatched switch cases (like else)
+- **String.equals()**: Proper way to compare strings (not ==), switch handles this internally
+- **Integer.parseInt()**: Converts String to int, throws NumberFormatException if invalid
+- **NumberFormatException**: Unchecked exception for invalid number formats
+- **Try-Catch**: Catch specific exceptions (NumberFormatException) while letting others propagate
+- **Integer Division**: `total / 60` truncates decimal, gives whole hours
+- **Modulo Operator**: `total % 60` gives remainder, used for remaining minutes
+- **ArrayList.size()**: Returns number of elements in collection
+- **User-Facing Output**: Format output for users separately from debug toString()
+- **String.format()**: Similar to printf, formats strings with placeholders
+- **System.out.printf()**: Print formatted output directly (vs String.format then println)
+- **Array Bounds Checking**: Must check args.length before accessing args[index]
+- **ArrayIndexOutOfBoundsException**: Thrown when accessing invalid array index (unlike JS undefined)
+- **LocalDate.now()**: Static method to get current date
+- **Integration Patterns**: CLI layer (PracticeTracker) → Business logic (SessionManager) → Data (Session)
+
 ## Questions Asked & Insights
 
 ### Module 1
@@ -141,6 +167,19 @@
 
 **Key Pattern Recognition**: The serialization round trip (object → text → object) is fundamental to all data persistence, whether it's CSV files, JSON APIs, SQL databases, or binary protocols. The concepts learned here (serialize, deserialize, type safety, format consistency) transfer directly to those more complex scenarios.
 
+### Module 6
+**Insight**: Switch statements are the Java idiom for command routing. While if-else chains would work, switch signals intent - "I'm routing based on discrete options." This is a readability pattern that makes code self-documenting.
+
+**Compositional Thinking**: Integrating five modules of isolated components into a cohesive application demonstrated the power of separation of concerns. PracticeTracker doesn't know about file I/O. SessionManager doesn't know about command-line parsing. Each layer has a single responsibility, making the system both understandable and maintainable.
+
+**Array Bounds Discovery**: Java arrays throw ArrayIndexOutOfBoundsException immediately when accessing invalid indices, unlike JavaScript which returns undefined. This forces defensive programming - check length before access. It's the "fail fast" philosophy: catch bugs at the point of error, not downstream where symptoms appear.
+
+**Exception Handling Design Decision**: Removed redundant try-catch for IOException because main() already declares `throws IOException`. Learned that exception handling should happen at the appropriate level - not every exception needs to be caught immediately. Sometimes propagation is the right choice.
+
+**Integer Math for Time Conversion**: Used division (`/`) and modulo (`%`) to decompose total minutes into hours and minutes. Integer division truncates (75 / 60 = 1), modulo gives remainder (75 % 60 = 15). This pattern applies any time you need to convert between time units, pagination, or other "groups of N" problems.
+
+**User Experience Thinking**: Distinguished between debug output (toString()) and user-facing output (formatted strings). Real software needs both - internal representations for developers, polished presentations for users. These serve different purposes and should be kept separate.
+
 ## Common Mistakes & Corrections
 
 ### Module 1
@@ -157,6 +196,11 @@
 
 ### Module 5
 - **Initial implementation issue**: First version called `this.addSession()` inside `loadFromFile()`, which triggered unnecessary file writes during loading. Recognized the performance issue when prompted and fixed by using `this.sessions.add()` directly instead.
+
+### Module 6
+- **Array bounds error**: Initially tried to check `if (args[1] == null)` but this threw ArrayIndexOutOfBoundsException before the check could run. Learned that Java arrays don't return null for invalid indices - they throw immediately. Fixed by checking `args.length < 2` before accessing args[1].
+- **Redundant exception handling**: Initially had try-catch for IOException inside add case, but main() already declares throws IOException. Realized this was unnecessary nesting - removed it to let IOException propagate to the appropriate level.
+- **Empty list UX**: Initially forgot to handle empty sessions list - would just print nothing. Added check for `sessions.size() == 0` to print helpful "No sessions added yet" message.
 
 ## JavaScript vs Java Comparisons
 
@@ -199,6 +243,22 @@
 ### Error Handling Philosophy
 - **JS**: Try the operation, catch errors if they happen (optional)
 - **Java**: Declare what can fail in method signature (`throws`), compiler enforces handling
+
+### Switch Statements
+- **JS**: `switch (value) { case "x": ... break; }` - nearly identical syntax
+- **Java**: Same syntax, but traditionally more common for command routing patterns
+
+### String Comparison
+- **JS**: `str1 === str2` or `str1 == str2` - compares values directly
+- **Java**: Must use `str1.equals(str2)` - `==` compares memory addresses, not content
+
+### Array Bounds
+- **JS**: `arr[999]` returns `undefined` if index doesn't exist - lenient
+- **Java**: `arr[999]` throws `ArrayIndexOutOfBoundsException` - strict, fails fast
+
+### Number Parsing
+- **JS**: `parseInt("abc")` returns `NaN` - special value indicating failure
+- **Java**: `Integer.parseInt("abc")` throws `NumberFormatException` - forces explicit error handling
 
 ## Review Before Next Session
 
