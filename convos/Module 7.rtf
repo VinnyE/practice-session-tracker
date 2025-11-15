@@ -1,0 +1,785 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red187\green187\blue187;\red0\green0\blue0;\red221\green90\blue62;
+\red255\green255\blue255;\red135\green135\blue135;\red255\green255\blue255;\red42\green42\blue42;\red0\green180\blue72;
+\red160\green168\blue254;\red255\green65\blue106;\red0\green0\blue187;\red0\green187\blue0;\red108\green108\blue108;
+\red187\green0\blue0;\red0\green77\blue27;\red112\green20\blue40;\red177\green60\blue87;\red0\green156\blue70;
+\red81\green81\blue81;\red70\green73\blue108;}
+{\*\expandedcolortbl;;\cspthree\c78104\c78104\c78104;\cspthree\c0\c0\c0;\cspthree\c84314\c46667\c34118;
+\cspthree\c100000\c100000\c100000;\cspthree\c60000\c60000\c60000;\cspthree\c100000\c100000\c100000;\cspthree\c21569\c21569\c21569;\cspthree\c30588\c72941\c39608;
+\cspthree\c69412\c72549\c97647;\cspthree\c100000\c41961\c50196;\cspthree\c4998\c14302\c75097;\cspthree\c32054\c75090\c21583;\cspthree\c50000\c50000\c50000;
+\cspthree\c72501\c19050\c9922;\cspthree\c13333\c36078\c16863;\cspthree\c47843\c16078\c21176;\cspthree\c70196\c34902\c41961;\cspthree\c21961\c65098\c37647;
+\cspthree\c39052\c39052\c39052;\cspthree\c34706\c36275\c48824;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \ulnone  \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4  \uc0\u9616 \u9627 \u9608 \u9608 \u9608 \u9628 \u9612 \cf2    \cf5 Claude Code\cf2  \cf6 v2.0.42\cf2  \
+\cf4 \uc0\u9629 \u9628 \u9608 \u9608 \u9608 \u9608 \u9608 \u9627 \u9624 \cf2   \cf6 Sonnet 4.5 \'b7 Claude Max\cf2  \
+\cf4   \uc0\u9624 \u9624  \u9629 \u9629   \cf2   \cf6 learning java/practice session tracker\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > I'm ready to start Module 6 of my Java learning journey. Please read \cf2 \cb3  \
+\cf7 \cb8 @CLAUDE.md,\cf2 \cb3  \
+\cf7 \cb8   @LEARNING.md, and @PROJECT_ROADMAP.md to understand where I am and what\cf2 \cb3  \
+\cf7 \cb8  we're\cf2 \cb3  \
+\cf7 \cb8   working on.\cf2 \cb3  \
+ \
+\cf7 \cb8   I've completed:\cf2 \cb3  \
+\cf7 \cb8   - Module 1: Project Setup & Basic Structure \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 2: Session Data Model \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 3: SessionManager - Core Logic \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 4: File Persistence - Writing \uc0\u9989 \cf2 \cb3  \
+\cf7 \cb8   - Module 5: File Persistence - Reading \uc0\u9989 \cf2 \cb3  \
+ \
+\cf7 \cb8   My app now has complete persistence - sessions load from sessions.txt \cf2 \cb3  \
+\cf7 \cb8 on startup\cf2 \cb3  \
+\cf7 \cb8   and save on changes. The SessionManager is fully functional.\cf2 \cb3  \
+ \
+\cf7 \cb8   Next, I need to implement the actual CLI commands so I can run:\cf2 \cb3  \
+\cf7 \cb8   - java PracticeTracker add 45 - Add a session with today's date\cf2 \cb3  \
+\cf7 \cb8   - java PracticeTracker list - Display all sessions\cf2 \cb3  \
+\cf7 \cb8   - java PracticeTracker total - Show total practice time\cf2 \cb3  \
+ \
+\cf7 \cb8   Let's begin Module 6: Commands Implementation. \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! You've built a solid foundation with complete data \
+  persistence. Now it's time to bring it all together with a working CLI \
+  interface. \
+ \
+  Let me start by reading your current source files to understand the \
+  exact state of your code, then I'll create the MODULE6.md reference \
+  document. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 32\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (SessionManager.java) \
+  \uc0\u9151  \'a0Read \cf5 64\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (Session.java) \
+  \uc0\u9151  \'a0Read \cf5 27\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Now I'll create the MODULE6.md reference document for you. This module \
+  brings together everything you've learned so far. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Write\cf2 (Learning Modules/MODULE6.md) \
+  \uc0\u9151  \'a0Wrote \cf5 362\cf2  lines to \cf5 Learning Modules/MODULE6.md\cf2                   \
+     # Module 6: Commands Implementation \
+     ## Learning Objectives \
+     By the end of this module, you will: \
+     - Understand switch statements as a pattern for command routing \
+     - Parse and validate command-line arguments \
+     - Format output for end users (vs debug output) \
+     - Convert string input to appropriate types with error handling \
+     - Integrate all components into a working CLI application \
+     \cf6 \'85 +352 lines (ctrl+o to expand)\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! I've created \cf5 MODULE6.md\cf2  in your Learning Modules folder. This \
+  module brings together everything you've built so far. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Command routing\cf2  is where application architecture becomes tangible. \
+  Notice how your app has \cf5 three distinct layers\cf2  that never blur: \
+ \
+  1. \cf5 PracticeTracker\cf2  (CLI/Presentation) - Knows about strings, arguments, \
+   user-friendly formatting \
+  2. \cf5 SessionManager\cf2  (Business Logic) - Knows about sessions, collections, \
+   persistence \
+  3. \cf5 Session\cf2  (Data Model) - Knows about dates and durations \
+ \
+  Each layer speaks a different language. PracticeTracker speaks "strings \
+   and args", SessionManager speaks "objects and operations", Session \
+  speaks "data and types". The switch statement you'll write isn't just \
+  routing commands - it's \cf5 translating between languages\cf2 . String "45" \
+  becomes int 45. User command "add" becomes method call \cf10 addSession()\cf2 . \
+  Debug output "Session\{...\}" becomes user output "45 minutes". \
+ \
+  This separation is why you can swap out PracticeTracker for a GUI or \
+  web API later without touching SessionManager or Session. The core \
+  logic stays pure. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf5 Your Task\cf2  \
+ \
+  Implement the three CLI commands in \cf5 PracticeTracker.java\cf2 : \
+ \
+  1. \cf5 Replace the test code\cf2  (lines 7-29) with actual command routing using \
+   a switch statement \
+  2. \cf5 Parse the command\cf2  from \cf10 args[0]\cf2  and route to appropriate logic \
+  3. \cf5 Implement each command\cf2 : add, list, total \
+  4. \cf5 Format output\cf2  for users (not debug toString()) \
+  5. \cf5 Handle basic errors\cf2  (unknown command, wrong number of args) \
+ \
+  \cf5 Key Decisions You'll Make\cf2  \
+ \
+  - \cf5 How to structure your switch statement\cf2  - which checks happen first? \
+  - \cf5 How to format the list output\cf2  - what does "user-friendly" mean to \
+  you? \
+  - \cf5 What confirmation messages to show\cf2  - what would you want to see as a \
+  user? \
+  - \cf5 How to handle edge cases\cf2  - what if there are no sessions? What if \
+  args are missing? \
+ \
+  The MODULE6.md document has all the concepts, API references, and \
+  examples you need. You know all the Java syntax required - this is \
+  about \cf5 composing\cf2  what you've learned into a cohesive application. \
+ \
+  Take your time. Think about the user experience. When you're done, \
+  you'll have a fully functional CLI app. \
+ \
+  Share your implementation when you're ready, and I'll review it with \
+  you! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > think i'm done, check it out \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Let me check out your implementation! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 62\cf2  lines \
+  \uc0\u9151  \'a0\cf11 Interrupted \cf6 \'b7 What should Claude do instead?\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > think i'm done, check it out \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Let me check out your implementation! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 63\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent work! You've implemented a complete, working CLI application. \
+   Let me walk through what you did well and discuss a couple of areas \
+  for improvement. \
+ \
+  \cf5 What You Did Really Well\cf2  \
+ \
+  \cf5 1. Clean switch statement structure\cf2  - Your command routing is clear and \
+   easy to read. The flow from args[0] to the appropriate case is exactly \
+   right. \
+ \
+  \cf5 2. User-friendly formatting\cf2  - You didn't fall into the trap of using \
+  \cf10 toString()\cf2  for users. Lines 42 and 50 show you understand the \
+  difference between debug output and user presentation. \
+ \
+  \cf5 3. The stretch goal!\cf2  - Lines 47-48 show great problem-solving: \
+  \cf12 int\cf2  hours = total / \cf13 60\cf2 ;    \cf13 // Integer division\cf2  \
+  \cf12 int\cf2  minutes = total % \cf13 60\cf2 ;   \cf13 // Modulo operator\cf2  \
+  This is exactly the right approach. You leveraged integer division \
+  (which truncates) and modulo (remainder) to decompose total minutes \
+  into hours and minutes. \
+ \
+  \cf5 4. NumberFormatException handling\cf2  - Line 34 catches the case where \
+  someone types \cf10 java PracticeTracker add abc\cf2 . \
+ \
+  \cf5 5. Domain validation\cf2  - Line 20 checks that duration is positive, not \
+  just parseable. This is thinking beyond "does it compile?" to "does it \
+  make sense?" \
+ \
+  \cf5 6. Helpful error messages\cf2  - Lines 55, 59 give users actionable \
+  feedback. \
+ \
+  \cf5 Issues to Discuss\cf2  \
+ \
+  I see three issues, and I want you to test your code to discover one of \
+   them yourself. \
+ \
+  \cf14 \uc0\u9679  Learn by Doing\cf2  \
+ \
+  \cf5 Context:\cf2  You've implemented validation to check if args[1] is null \
+  (line 13), but there's a subtle bug in how Java arrays work that makes \
+  this check ineffective. Before I explain, I want you to discover it \
+  through testing. \
+ \
+  \cf5 Your Task:\cf2  Test your add command with a missing duration argument. In \
+  your terminal, compile and run: \
+ \
+  javac PracticeTracker.java Session.java SessionManager.java \
+  java PracticeTracker add \
+ \
+  \cf5 Guidance:\cf2  Observe what happens. Does your null check on line 13 catch \
+  the problem, or does something else occur? Think about what this tells \
+  you about how Java arrays behave when you access an invalid index. \
+  After you run this test, let me know what you observed, and we'll \
+  discuss the underlying concept and how to fix it. \
+ \
+  --- \
+  Don't proceed with other changes yet - I want you to discover this \
+  first through testing, then we'll discuss the other two issues. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > ah yeah I forgot java arrays work different. I got " Index 1 out of \cf2 \cb3  \
+\cf7 \cb8 bounds for length 1\cf2 \cb3  \
+\cf7 \cb8         at PracticeTracker.main(PracticeTracker.java:13)" \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! You discovered exactly the issue I wanted you to see. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  \cf5 Java arrays are fundamentally different from JavaScript arrays.\cf2  In \
+  JavaScript, accessing an out-of-bounds index just returns \cf10 undefined\cf2 . In \
+   Java, it throws \cf10 ArrayIndexOutOfBoundsException\cf2  \cf5 immediately\cf2 , before \
+  your code even gets a chance to check if the value is null. \
+ \
+  This is Java's philosophy in action: \cf5 fail fast and loudly\cf2 . Rather than \
+  letting you work with invalid data, Java stops execution and forces you \
+   to fix the bug. The array has length 1, so valid indices are only 0. \
+  Accessing index 1 is a programming error, not a "maybe this is null" \
+  situation. \
+ \
+  You already solved this exact problem in Module 1 when you checked \
+  \cf10 args.length\cf2  before accessing elements! \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  \cf14 \uc0\u9679  Learn by Doing\cf2  \
+ \
+  \cf5 Context:\cf2  You need to ensure \cf10 args[1]\cf2  exists before trying to access it. \
+  The null check on line 13 never gets a chance to run because the \
+  exception happens on the same line when accessing \cf10 args[1]\cf2 . \
+ \
+  \cf5 Your Task:\cf2  In PracticeTracker.java, fix the add command case (around \
+  line 11-16) to properly validate that the user provided a duration \
+  argument before accessing \cf10 args[1]\cf2 . \
+ \
+  \cf5 Guidance:\cf2  You've done this before in Module 1. Think about what \
+  information you need to check (hint: it's a property of the args array \
+  itself). The check should happen BEFORE you try to access args[1]. \
+  You'll need to verify that the array is long enough to have an element \
+  at index 1. \
+ \
+  After you fix this, test again with \cf10 java PracticeTracker add\cf2  and verify \
+   you get your helpful error message instead of an exception. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > fixed \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Let me check your fix! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 63\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Line 13 now checks \cf10 args.length < 2\cf2  before accessing \cf10 args[1]\cf2 . \
+  This is exactly the right fix. \
+ \
+  You're checking the \cf5 length of the array\cf2  rather than trying to access an \
+   element that might not exist. Now when someone runs \cf10 java \cf2  \
+  PracticeTracker add, they'll see your helpful error message instead of \
+  an exception. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  This illustrates a key difference in error-handling philosophy: \
+ \
+  \cf5 JavaScript\cf2 : "Try to access it, get undefined, check if undefined" \
+  (lenient, runtime discovery) \
+  \cf5 Java\cf2 : "Check if it exists, then access it" (strict, prevent the error \
+  entirely) \
+ \
+  JavaScript optimizes for flexibility - \cf10 arr[999]\cf2  just returns undefined. \
+   Java optimizes for correctness - \cf10 arr[999]\cf2  crashes loudly if the array \
+  only has 10 elements, forcing you to write defensive code that checks \
+  bounds first. \
+ \
+  Neither is "better" - they optimize for different priorities. \
+  JavaScript prioritizes developer velocity. Java prioritizes catching \
+  bugs before production. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  Now let's address the two remaining issues: \
+ \
+  \cf5 Issue 2: Redundant Exception Handling\cf2  \
+ \
+  Look at lines 25-33. You have a try-catch for IOException inside your \
+  add case: \
+ \
+  \cf12 try\cf2  \{ \
+      Session session = \cf12 new\cf2  Session(LocalDate.now(), duration); \
+      manager.addSession(session); \
+      System.out.println(String.format(\cf15 "Added session:  %d minutes"\cf2 , \
+  session.getDuration())); \
+  \} \cf12 catch\cf2  (IOException e) \{ \
+      System.err.println(\cf15 "Error writing to file: "\cf2  + e.getMessage()); \
+  \} \
+ \
+  But look at line 6 - your \cf10 main\cf2  method signature already declares \cf10 throws\cf2  \
+   IOException. \
+ \
+  \cf5 Question for you:\cf2  What happens to an IOException if you don't catch it \
+  here? Does it need to be caught, or can you let it propagate up (since \
+  main declares throws IOException)? \
+ \
+  Think about whether this inner try-catch is necessary or if it's \
+  redundant. \
+ \
+  \cf5 Issue 3: Empty List Edge Case\cf2  \
+ \
+  Test this scenario: \
+  1. Delete your \cf10 sessions.txt\cf2  file (or rename it) \
+  2. Run \cf10 java PracticeTracker list\cf2  \
+ \
+  What do you see? Should users see something more helpful when there are \
+   no sessions yet? \
+ \
+  Take a look at these two issues and let me know your thoughts. What \
+  would you change, if anything? \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > true. updated both! the try catch for the IOException doesn't seem \cf2 \cb3  \
+\cf7 \cb8 necessary since its handled at the main level, and a helpful message for \cf2 \cb3  \
+\cf7 \cb8 empty lists makes sense. updated code \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Let me check out your updates! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (PracticeTracker.java) \
+  \uc0\u9151  \'a0Read \cf5 62\cf2  lines \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! Both changes are spot-on: \
+ \
+  \cf5 1. Removed redundant try-catch (lines 25-28)\cf2  - You're right that it's \
+  unnecessary. The IOException will propagate up to main's \cf10 throws \cf2  \
+  IOException declaration, which is cleaner than nested exception \
+  handling. This follows the principle of handling exceptions at the \
+  appropriate level. \
+ \
+  \cf5 2. Empty list message (lines 36-38)\cf2  - Great user experience thinking. \
+  \cf10 sessions.size() == 0\cf2  checks if the list is empty and provides a helpful \
+   message instead of just... nothing. \
+ \
+  Your code is now clean, functional, and user-friendly. Let's test it to \
+   make sure everything works! \
+ \
+  \cf5 Testing Your CLI\cf2  \
+ \
+  Run these tests to verify all commands work correctly: \
+ \
+  \cf13 # Compile everything\cf2  \
+  javac PracticeTracker.java Session.java SessionManager.java \
+ \
+  \cf13 # Test 1: Add a session\cf2  \
+  java PracticeTracker add 45 \
+ \
+  \cf13 # Test 2: Add another session\cf2  \
+  java PracticeTracker add 30 \
+ \
+  \cf13 # Test 3: List all sessions\cf2  \
+  java PracticeTracker list \
+ \
+  \cf13 # Test 4: Show total\cf2  \
+  java PracticeTracker total \
+ \
+  \cf13 # Test 5: Error - no duration\cf2  \
+  java PracticeTracker add \
+ \
+  \cf13 # Test 6: Error - invalid duration\cf2  \
+  java PracticeTracker add abc \
+ \
+  \cf13 # Test 7: Error - unknown command\cf2  \
+  java PracticeTracker foo \
+ \
+  Give these a run and let me know if everything works as expected. If \
+  all tests pass, we'll wrap up the module! \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > yup they're all good \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! You've successfully built a complete, working CLI \
+  application. This is a major milestone - you now have a functional Java \
+   program that does something useful. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  Notice what you just accomplished: You integrated \cf5 five modules of \cf2  \
+  \cf5 learning\cf2  into one cohesive application. \
+ \
+  - Module 1: Command-line argument handling \uc0\u8594  Switch statement routing \
+  - Module 2: Session data model \uc0\u8594  Creating sessions with \cf10 LocalDate.now()\cf2  \
+  - Module 3: SessionManager operations \uc0\u8594  Calling add/list/total methods \
+  - Module 4: File persistence writing \uc0\u8594  Triggered via \cf10 addSession()\cf2  \
+  - Module 5: File persistence reading \uc0\u8594  Loaded on SessionManager \
+  construction \
+ \
+  Each piece you built in isolation now works together seamlessly. This \
+  is \cf5 compositional thinking\cf2  - building small, well-defined components \
+  that combine into larger systems. Your switch statement didn't need to \
+  know about file I/O. SessionManager didn't need to know about \
+  command-line parsing. Each layer stays in its lane. \
+ \
+  You also demonstrated something important: \cf5 the difference between \cf2  \
+  \cf5 throwing and catching exceptions\cf2 . By removing the redundant try-catch, \
+  you let IOException propagate to where it's most appropriately handled. \
+   This is a design decision - not all exceptions need to be caught \
+  immediately. Sometimes the right move is to let them bubble up. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  Now let's document your learning and commit your work. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Read\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Read \cf5 247\cf2  lines \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 8\cf2  additions and \cf5 1\cf2  removal                \
+     \cf6   36 \cf7    - **Type Conversion**: \uc0\u9989  Understood - Integer.parseInt()\cf2  \
+     \cf6      \cf7    and LocalDate.parse() for explicit conversions\cf2  \
+     \cf6   37 \cf7    - **Deserialization**: \uc0\u9989  Understood - Converting text \cf2  \
+     \cf6      \cf7   back into typed objects (inverse of serialization)\cf2  \
+     \cf6   38 \cf7    - **Constructor I/O**: \uc0\u9989  Understood - Loading state in \cf2  \
+     \cf6      \cf7   constructor, declaring throws IOException\cf2  \
+     \cf6   39 \cf7 \cb16 +  - **Switch Statements**: \uc0\u9989  Understood - Pattern matching\cf2 \cb3  \
+     \cf6      \cf7 \cb16 +  for command routing, uses break to prevent fall-through\cf2 \cb3  \
+     \cf6   40 \cf7 \cb16 +  - **String Comparison**: \uc0\u9989  Understood - Must use \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + .equals() not ==, switch handles internally\cf2 \cb3  \
+     \cf6   41 \cf7 \cb16 +  - **NumberFormatException**: \uc0\u9989  Understood - Thrown by \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + parseInt() when string isn't valid number\cf2 \cb3  \
+     \cf6   42 \cf7 \cb16 +  - **Integer Division & Modulo**: \uc0\u9989  Understood - / \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + truncates, % gives remainder (for hours/minutes \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + calculation)\cf2 \cb3  \
+     \cf6   43 \cf7 \cb16 +  - **User vs Debug Output**: \uc0\u9989  Understood - toString() \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + for debugging, separate formatting for users\cf2 \cb3  \
+     \cf6   44 \cf7 \cb16 +  - **Exception Handling Levels**: \uc0\u9989  Understood - Can \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + catch locally or propagate via throws declaration\cf2 \cb3  \
+     \cf6   45 \cf7 \cb16 +  - **Empty Collection Checks**: \uc0\u9989  Understood - Check \cf2 \cb3  \
+     \cf6      \cf7 \cb16 + size() == 0 to provide helpful messages\cf2 \cb3  \
+     \cf6   46 \cf7    \cf2  \
+     \cf6   47 \cf7    ## Project Modules Completed\cf2  \
+     \cf6   48 \cf7    - [x] Module 1: Project Setup & Basic Structure\cf2  \
+     \cf6 ...\cf2  \
+     \cf6   43 \cf7    - [x] Module 3: SessionManager - Core Logic\cf2  \
+     \cf6   44 \cf7    - [x] Module 4: File Persistence - Writing\cf2  \
+     \cf6   45 \cf7    - [x] Module 5: File Persistence - Reading\cf2  \
+     \cf6   46 \cf2 \cb17 -  \cf7 - [\cb18  \cb17 ] Module 6: Commands Implementation\cf2 \cb3  \
+     \cf6   46 \cf2 \cb16 +  \cf7 - [\cb19 x\cb16 ] Module 6: Commands Implementation\cf2 \cb3  \
+     \cf6   47 \cf7    - [ ] Module 7: Polish & Error Handling\cf2  \
+     \cf6   48 \cf7    \cf2  \
+     \cf6   49 \cf7    ## Concepts Covered\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 19\cf2  additions                             \
+     \cf6   109 \cf7    - **Round Trip**: Complete persistence cycle: Object \uc0\u8594  \cf2  \
+     \cf6       \cf7   CSV \uc0\u8594  Object produces same data\cf2  \
+     \cf6   110 \cf7    - **Performance Consideration**: Avoid unnecessary file \cf2  \
+     \cf6       \cf7   writes during bulk loading operations\cf2  \
+     \cf6   111 \cf7    \cf2  \
+     \cf6   112 \cf7 \cb16 +  ### Module 6: Commands Implementation\cf2 \cb3  \
+     \cf6   113 \cf7 \cb16 +  - **Switch Statements**: `switch (value) \{ case "x": ...\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  break; \}` - route execution based on value\cf2 \cb3  \
+     \cf6   114 \cf7 \cb16 +  - **Break Statement**: Prevents "fall-through" to next \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + case in switch\cf2 \cb3  \
+     \cf6   115 \cf7 \cb16 +  - **Default Case**: Catch-all for unmatched switch cases\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  (like else)\cf2 \cb3  \
+     \cf6   116 \cf7 \cb16 +  - **String.equals()**: Proper way to compare strings \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + (not ==), switch handles this internally\cf2 \cb3  \
+     \cf6   117 \cf7 \cb16 +  - **Integer.parseInt()**: Converts String to int, throws\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  NumberFormatException if invalid\cf2 \cb3  \
+     \cf6   118 \cf7 \cb16 +  - **NumberFormatException**: Unchecked exception for \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + invalid number formats\cf2 \cb3  \
+     \cf6   119 \cf7 \cb16 +  - **Try-Catch**: Catch specific exceptions \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + (NumberFormatException) while letting others propagate\cf2 \cb3  \
+     \cf6   120 \cf7 \cb16 +  - **Integer Division**: `total / 60` truncates decimal, \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + gives whole hours\cf2 \cb3  \
+     \cf6   121 \cf7 \cb16 +  - **Modulo Operator**: `total % 60` gives remainder, \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + used for remaining minutes\cf2 \cb3  \
+     \cf6   122 \cf7 \cb16 +  - **ArrayList.size()**: Returns number of elements in \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + collection\cf2 \cb3  \
+     \cf6   123 \cf7 \cb16 +  - **User-Facing Output**: Format output for users \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + separately from debug toString()\cf2 \cb3  \
+     \cf6   124 \cf7 \cb16 +  - **String.format()**: Similar to printf, formats \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + strings with placeholders\cf2 \cb3  \
+     \cf6   125 \cf7 \cb16 +  - **System.out.printf()**: Print formatted output \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + directly (vs String.format then println)\cf2 \cb3  \
+     \cf6   126 \cf7 \cb16 +  - **Array Bounds Checking**: Must check args.length \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + before accessing args[index]\cf2 \cb3  \
+     \cf6   127 \cf7 \cb16 +  - **ArrayIndexOutOfBoundsException**: Thrown when \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + accessing invalid array index (unlike JS undefined)\cf2 \cb3  \
+     \cf6   128 \cf7 \cb16 +  - **LocalDate.now()**: Static method to get current date\cf2 \cb3  \
+     \cf6   129 \cf7 \cb16 +  - **Integration Patterns**: CLI layer (PracticeTracker) \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + \uc0\u8594  Business logic (SessionManager) \u8594  Data (Session)\cf2 \cb3  \
+     \cf6   130 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   131 \cf7    ## Questions Asked & Insights\cf2  \
+     \cf6   132 \cf7    \cf2  \
+     \cf6   133 \cf7    ### Module 1\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 13\cf2  additions                             \
+     \cf6   167 \cf7    \cf2  \
+     \cf6   168 \cf7    **Key Pattern Recognition**: The serialization round \cf2  \
+     \cf6       \cf7   trip (object \uc0\u8594  text \u8594  object) is fundamental to all data \cf2  \
+     \cf6       \cf7   persistence, whether it's CSV files, JSON APIs, SQL \cf2  \
+     \cf6       \cf7   databases, or binary protocols. The concepts learned here\cf2  \
+     \cf6       \cf7    (serialize, deserialize, type safety, format \cf2  \
+     \cf6       \cf7   consistency) transfer directly to those more complex \cf2  \
+     \cf6       \cf7   scenarios.\cf2  \
+     \cf6   169 \cf7    \cf2  \
+     \cf6   170 \cf7 \cb16 +  ### Module 6\cf2 \cb3  \
+     \cf6   171 \cf7 \cb16 +  **Insight**: Switch statements are the Java idiom for \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + command routing. While if-else chains would work, switch \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + signals intent - "I'm routing based on discrete options."\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  This is a readability pattern that makes code \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + self-documenting.\cf2 \cb3  \
+     \cf6   172 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   173 \cf7 \cb16 +  **Compositional Thinking**: Integrating five modules of \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + isolated components into a cohesive application \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + demonstrated the power of separation of concerns. \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + PracticeTracker doesn't know about file I/O. \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + SessionManager doesn't know about command-line parsing. \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + Each layer has a single responsibility, making the system\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  both understandable and maintainable.\cf2 \cb3  \
+     \cf6   174 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   175 \cf7 \cb16 +  **Array Bounds Discovery**: Java arrays throw \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + ArrayIndexOutOfBoundsException immediately when accessing\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  invalid indices, unlike JavaScript which returns \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + undefined. This forces defensive programming - check \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + length before access. It's the "fail fast" philosophy: \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + catch bugs at the point of error, not downstream where \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + symptoms appear.\cf2 \cb3  \
+     \cf6   176 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   177 \cf7 \cb16 +  **Exception Handling Design Decision**: Removed \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + redundant try-catch for IOException because main() \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + already declares `throws IOException`. Learned that \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + exception handling should happen at the appropriate level\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  - not every exception needs to be caught immediately. \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + Sometimes propagation is the right choice.\cf2 \cb3  \
+     \cf6   178 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   179 \cf7 \cb16 +  **Integer Math for Time Conversion**: Used division \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + (`/`) and modulo (`%`) to decompose total minutes into \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + hours and minutes. Integer division truncates (75 / 60 = \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + 1), modulo gives remainder (75 % 60 = 15). This pattern \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + applies any time you need to convert between time units, \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + pagination, or other "groups of N" problems.\cf2 \cb3  \
+     \cf6   180 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   181 \cf7 \cb16 +  **User Experience Thinking**: Distinguished between \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + debug output (toString()) and user-facing output \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + (formatted strings). Real software needs both - internal \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + representations for developers, polished presentations \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + for users. These serve different purposes and should be \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + kept separate.\cf2 \cb3  \
+     \cf6   182 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   183 \cf7    ## Common Mistakes & Corrections\cf2  \
+     \cf6   184 \cf7    \cf2  \
+     \cf6   185 \cf7    ### Module 1\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 5\cf2  additions                              \
+     \cf6   197 \cf7    ### Module 5\cf2  \
+     \cf6   198 \cf7    - **Initial implementation issue**: First version called\cf2  \
+     \cf6       \cf7    `this.addSession()` inside `loadFromFile()`, which \cf2  \
+     \cf6       \cf7   triggered unnecessary file writes during loading. \cf2  \
+     \cf6       \cf7   Recognized the performance issue when prompted and fixed \cf2  \
+     \cf6       \cf7   by using `this.sessions.add()` directly instead.\cf2  \
+     \cf6   199 \cf7    \cf2  \
+     \cf6   200 \cf7 \cb16 +  ### Module 6\cf2 \cb3  \
+     \cf6   201 \cf7 \cb16 +  - **Array bounds error**: Initially tried to check `if \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + (args[1] == null)` but this threw \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + ArrayIndexOutOfBoundsException before the check could \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + run. Learned that Java arrays don't return null for \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + invalid indices - they throw immediately. Fixed by \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + checking `args.length < 2` before accessing args[1].\cf2 \cb3  \
+     \cf6   202 \cf7 \cb16 +  - **Redundant exception handling**: Initially had \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + try-catch for IOException inside add case, but main() \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + already declares throws IOException. Realized this was \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + unnecessary nesting - removed it to let IOException \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + propagate to the appropriate level.\cf2 \cb3  \
+     \cf6   203 \cf7 \cb16 +  - **Empty list UX**: Initially forgot to handle empty \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + sessions list - would just print nothing. Added check for\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  `sessions.size() == 0` to print helpful "No sessions \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + added yet" message.\cf2 \cb3  \
+     \cf6   204 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   205 \cf7    ## JavaScript vs Java Comparisons\cf2  \
+     \cf6   206 \cf7    \cf2  \
+     \cf6   207 \cf7    ### Arrays\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Update\cf2 (LEARNING.md) \
+  \uc0\u9151  \'a0Updated \cf5 LEARNING.md\cf2  with \cf5 16\cf2  additions                             \
+     \cf6   244 \cf7    - **JS**: Try the operation, catch errors if they happen\cf2  \
+     \cf6       \cf7    (optional)\cf2  \
+     \cf6   245 \cf7    - **Java**: Declare what can fail in method signature \cf2  \
+     \cf6       \cf7   (`throws`), compiler enforces handling\cf2  \
+     \cf6   246 \cf7    \cf2  \
+     \cf6   247 \cf7 \cb16 +  ### Switch Statements\cf2 \cb3  \
+     \cf6   248 \cf7 \cb16 +  - **JS**: `switch (value) \{ case "x": ... break; \}` - \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + nearly identical syntax\cf2 \cb3  \
+     \cf6   249 \cf7 \cb16 +  - **Java**: Same syntax, but traditionally more common \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + for command routing patterns\cf2 \cb3  \
+     \cf6   250 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   251 \cf7 \cb16 +  ### String Comparison\cf2 \cb3  \
+     \cf6   252 \cf7 \cb16 +  - **JS**: `str1 === str2` or `str1 == str2` - compares \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + values directly\cf2 \cb3  \
+     \cf6   253 \cf7 \cb16 +  - **Java**: Must use `str1.equals(str2)` - `==` compares\cf2 \cb3  \
+     \cf6       \cf7 \cb16 +  memory addresses, not content\cf2 \cb3  \
+     \cf6   254 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   255 \cf7 \cb16 +  ### Array Bounds\cf2 \cb3  \
+     \cf6   256 \cf7 \cb16 +  - **JS**: `arr[999]` returns `undefined` if index \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + doesn't exist - lenient\cf2 \cb3  \
+     \cf6   257 \cf7 \cb16 +  - **Java**: `arr[999]` throws \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + `ArrayIndexOutOfBoundsException` - strict, fails fast\cf2 \cb3  \
+     \cf6   258 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   259 \cf7 \cb16 +  ### Number Parsing\cf2 \cb3  \
+     \cf6   260 \cf7 \cb16 +  - **JS**: `parseInt("abc")` returns `NaN` - special \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + value indicating failure\cf2 \cb3  \
+     \cf6   261 \cf7 \cb16 +  - **Java**: `Integer.parseInt("abc")` throws \cf2 \cb3  \
+     \cf6       \cf7 \cb16 + `NumberFormatException` - forces explicit error handling\cf2 \cb3  \
+     \cf6   262 \cf7 \cb16 +  \cf2 \cb3  \
+     \cf6   263 \cf7    ## Review Before Next Session\cf2  \
+     \cf6   264 \cf7    \cf2  \
+     \cf6   265 \cf7    ### What We Built\cf2  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! I've updated LEARNING.md with all the Module 6 concepts, \
+  insights, and the lessons learned from the debugging process. \
+ \
+  Now let's commit your work to create a checkpoint: \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf9 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session \
+      tracker" && git add -A && git status) \
+  \uc0\u9151  \'a0On branch main                                      \
+     Your branch is ahead of 'origin/main' by 2 commits. \
+       (use "git push" to publish your local commits) \
+     \cf20 \'85 +7 lines (ctrl+o to expand)\cf2  \
+ \
+\cf9 \uc0\u9210 \cf2  \cf5 Bash\cf2 (cd "learning java/practice session \
+      tracker" && git commit -m "Module 6: Commands Implementation\'85) \
+  \uc0\u9151  \'a0[main 0665117] Module 6: Commands Implementation     \
+      4 files changed, 474 insertions(+), 24 deletions(-) \
+      create mode 100644 Learning Modules/MODULE6.md \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Excellent! Module 6 is complete and committed. \
+ \
+  \cf5 Mastery Check\cf2  \
+ \
+  Before we move to Module 7, I want to verify your understanding of the \
+  key concepts. Answer these questions: \
+ \
+  \cf5 1. Conceptual Understanding:\cf2  \
+  Why did we use a switch statement instead of an if-else chain for \
+  command routing? What does this choice communicate to other developers \
+  reading your code? \
+ \
+  \cf5 2. Java vs JavaScript:\cf2  \
+  Explain in your own words why \cf10 args[1] == null\cf2  didn't work as expected, \
+  and how this relates to the fundamental difference between JavaScript \
+  and Java arrays. \
+ \
+  \cf5 3. Design Decision:\cf2  \
+  Why did we keep \cf10 Session.toString()\cf2  as debug output instead of modifying \
+   it to return user-friendly formatting? What principle does this \
+  follow? \
+ \
+  Take a moment to think through these - I want to hear your \
+  understanding, not just recall the module content. \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > 1. switch statements are typically more readable. 2. Java immediately \cf2 \cb3  \
+\cf7 \cb8 throws an index out of bounds error when accessing args[1] if that index \cf2 \cb3  \
+\cf7 \cb8 doesn't have a value so the null check never actually occurs. in JS this \cf2 \cb3  \
+\cf7 \cb8 is different because the value is typically set to undefined without the \cf2 \cb3  \
+\cf7 \cb8 thrown error. 3. Session.toString() is meant for developers and so mostly\cf2 \cb3  \
+\cf7 \cb8  useful for debugging. not meant for user facing code like the CLI. this \cf2 \cb3  \
+\cf7 \cb8 is separation of concerns \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect. You've internalized the key concepts. \
+ \
+  \cf10 \uc0\u9733  Insight \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+  Your answer to #3 reveals something important: \cf5 every piece of code has \cf2  \
+  \cf5 an audience\cf2 . toString() speaks to developers debugging objects. CLI \
+  output speaks to end users accomplishing tasks. API responses speak to \
+  other systems. Documentation speaks to future maintainers. \
+ \
+  Senior engineers think in terms of audiences. When you wrote that \
+  formatted output instead of using toString(), you weren't just "making \
+  it pretty" - you were recognizing that different audiences need \
+  different representations of the same data. The Session object is the \
+  same, but a developer inspecting state needs \cf10 Session\{date=2025-11-14, \cf2  \
+  duration=45\} while a user tracking practice needs \cf10 2025-11-14  45 \cf2  \
+  minutes. \
+ \
+  This extends beyond output. Error messages have audiences too - stack \
+  traces for developers, helpful messages for users. Comments have \
+  audiences - inline comments for code maintainers, doc comments for API \
+  consumers. Design with your audience in mind. \
+  \cf10 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2  \
+ \
+  You've completed 6 of 7 modules. Your app is fully functional. Module 7 \
+   is about \cf5 polish and error handling\cf2  - making your app \
+  production-quality with better validation, comprehensive error \
+  handling, and edge case coverage. \
+ \
+  Are you ready to start Module 7 now, or would you prefer to take a \
+  break and continue later? \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb8 > I'd like to start module 7 in a new claude session, can you give me a \cf2 \cb3  \
+\cf7 \cb8 prompt for that? \cf2 \cb3  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \uc0\u9210 \cf2  Perfect! Here's a prompt you can use to start your next session: \
+ \
+  --- \
+  \cf5 Copy this for your next Claude session:\cf2  \
+ \
+  I'm ready to start Module 7 of my Java learning journey. Please read \
+  @CLAUDE.md, @LEARNING.md, and @PROJECT_ROADMAP.md to understand where I \
+   am and what we're working on. \
+ \
+  I've completed Modules 1-6: \
+  - Module 1: Project Setup & Basic Structure \uc0\u9989  \
+  - Module 2: Session Data Model \uc0\u9989  \
+  - Module 3: SessionManager - Core Logic \uc0\u9989  \
+  - Module 4: File Persistence - Writing \uc0\u9989  \
+  - Module 5: File Persistence - Reading \uc0\u9989  \
+  - Module 6: Commands Implementation \uc0\u9989  \
+ \
+  My app is fully functional with complete CLI commands (add, list,  \
+  total) and file persistence. All three commands work correctly. \
+ \
+  Next, I need Module 7: Polish & Error Handling - improving validation,  \
+  comprehensive error handling, edge case coverage, and making the app  \
+  production-quality. \
+ \
+  Let's begin Module 7. \
+ \
+  --- \
+  Great work on Module 6! You built a complete, working CLI application \
+  from scratch. See you in the next session for the final polish! \uc0\u55357 \u56960  \
+ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf21 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+> \
+\cf21 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \cf2 \
+  \cf6 ? for shortcuts\cf2                                          \cf6 \uc0\u9711  /ide for Cursor\cf2  \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+}
