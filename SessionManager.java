@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 
 public class SessionManager {
@@ -34,10 +35,21 @@ public class SessionManager {
             List<String> lines = Files.readAllLines(filePath);
 
             for (String line : lines) {
-                String[] parts = line.split(",");
-                LocalDate date = LocalDate.parse(parts[0]);
-                int duration = Integer.parseInt(parts[1]);
-                this.sessions.add(new Session(date, duration));
+                try {
+                    String[] parts = line.split(",");
+                    LocalDate date = LocalDate.parse(parts[0]);
+                    int duration = Integer.parseInt(parts[1]);
+                    this.sessions.add(new Session(date, duration));
+                } catch (DateTimeParseException e) {
+                    System.err.printf("Warning: Skipping invalid line: %s%n", line);
+                } catch (NumberFormatException e) {
+                    System.err.printf("Warning: Skipping invalid line: %s%n", line);
+                } catch (IndexOutOfBoundsException e) {
+                    System.err.printf("Warning: Skipping invalid line: %s%n", line);
+                } catch (Exception e) {
+                    System.err.println("An unexpected error occurred: " + e.getMessage());
+                }
+
             }
         }
     }

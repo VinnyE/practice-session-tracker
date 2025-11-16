@@ -5,6 +5,14 @@ public class Session {
     private int duration;
 
     public Session(LocalDate date, int duration) {
+        if (date == null) {
+            throw new IllegalArgumentException("Error: Date cannot be null.");
+        }
+
+        if (duration <= 0 || duration > 1440) {
+            throw new IllegalArgumentException("Error: Duration must be between 1 and 1440 minutes.");
+        }
+
         this.date = date;
         this.duration = duration;
     }

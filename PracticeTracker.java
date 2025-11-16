@@ -10,24 +10,26 @@ public class PracticeTracker {
             switch (args[0]) {
                 case "add":
                     try {
+
                         if (args.length < 2) {
-                            System.out.println("A valid duration argument is needed.");
-                            return;
+                            System.err.println("A valid duration argument is needed.");
+                            System.exit(1);
                         }
 
                         int duration = Integer.parseInt(args[1]);
 
-                        if (duration < 0) {
-                            System.out.println("Duration must be positive.");
-                            return;
+                        try {
+                            Session session = new Session(LocalDate.now(), duration);
+
+                            manager.addSession(session);
+                            System.out.println(String.format("Added session:  %d minutes", session.getDuration()));
+                        } catch (IllegalArgumentException e) {
+                            System.err.println(e.getMessage());
+                            System.exit(1);
                         }
-
-                        Session session = new Session(LocalDate.now(), duration);
-                        manager.addSession(session);
-
-                        System.out.println(String.format("Added session:  %d minutes", session.getDuration()));
                     } catch (NumberFormatException e) {
                         System.err.println("Error parsing duration param: " + e.getMessage());
+                        System.exit(1);
                     }
                     break;
                 case "list":
@@ -51,11 +53,13 @@ public class PracticeTracker {
                     break;
 
                 default:
-                    System.out.println("Invalid CLI argument. Valid arguments are: 'add', 'list', and 'total'.");
+                    System.err.println("Invalid CLI argument. Valid arguments are: 'add', 'list', and 'total'.");
+                    System.exit(1);
                     break;
             }
         } else {
-            System.out.println("Cannot run CLI with zero or more than two args. Received " + args.length + " arguments.");
+            System.err.println("Cannot run CLI with zero or more than two args. Received " + args.length + " arguments.");
+            System.exit(1);
         }
     }
 }

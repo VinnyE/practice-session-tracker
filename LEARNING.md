@@ -43,6 +43,14 @@
 - **User vs Debug Output**: ✅ Understood - toString() for debugging, separate formatting for users
 - **Exception Handling Levels**: ✅ Understood - Can catch locally or propagate via throws declaration
 - **Empty Collection Checks**: ✅ Understood - Check size() == 0 to provide helpful messages
+- **IllegalArgumentException**: ✅ Understood - Runtime exception for invalid method arguments, constructor validation
+- **Constructor Validation**: ✅ Understood - Validate invariants at object creation to prevent invalid state
+- **Exit Codes**: ✅ Understood - System.exit(0) for success, System.exit(1) for failure, shell communication
+- **Stdout vs Stderr**: ✅ Understood - System.out for normal output, System.err for errors, separate streams
+- **Per-Line Exception Handling**: ✅ Understood - Try-catch around each iteration to handle partial failures
+- **Multiple Exception Handling**: ✅ Understood - Multiple catch blocks for different exception types
+- **DateTimeParseException**: ✅ Understood - Thrown when LocalDate.parse() receives invalid date format
+- **Defensive Programming**: ✅ Understood - Validate at boundaries, fail fast, prevent invalid state
 
 ## Project Modules Completed
 - [x] Module 1: Project Setup & Basic Structure
@@ -51,7 +59,7 @@
 - [x] Module 4: File Persistence - Writing
 - [x] Module 5: File Persistence - Reading
 - [x] Module 6: Commands Implementation
-- [ ] Module 7: Polish & Error Handling
+- [x] Module 7: Polish & Error Handling
 
 ## Concepts Covered
 
@@ -128,6 +136,24 @@
 - **LocalDate.now()**: Static method to get current date
 - **Integration Patterns**: CLI layer (PracticeTracker) → Business logic (SessionManager) → Data (Session)
 
+### Module 7: Polish & Error Handling
+- **IllegalArgumentException**: Runtime exception for invalid constructor/method arguments
+- **Constructor Validation Pattern**: Validate object invariants at creation boundary to prevent invalid state
+- **Null Validation**: Check for null parameters before using them (throw IllegalArgumentException)
+- **Range Validation**: Validate numeric inputs fall within acceptable bounds (duration 1-1440)
+- **Boundary Validation**: Test edge cases (0, 1, 1440, 1441) to ensure correct behavior at limits
+- **Exit Codes**: System.exit(0) for success, System.exit(1) for errors, enables shell script integration
+- **Stdout vs Stderr**: System.out for normal output, System.err for errors - separate, redirectable streams
+- **Per-Line Error Handling**: Wrap individual iterations in try-catch for resilient parsing
+- **Multiple Catch Blocks**: Handle different exception types with specific recovery strategies
+- **DateTimeParseException**: Thrown by LocalDate.parse() for invalid date formats
+- **IndexOutOfBoundsException**: Thrown by array/list access with invalid index, also when split() produces fewer parts than expected
+- **Resilient File Loading**: Skip invalid lines with warnings rather than crashing on first error
+- **Layer Coupling**: Domain models (Session) should be independent of UI concerns (CLI usage messages)
+- **Error Message Design**: Be specific, actionable, and consistent - help users fix the problem
+- **Defensive Programming**: Validate inputs at system boundaries, fail fast on invalid state
+- **Tolerant Reader Pattern**: Accept and process what you can, warn about what you can't
+
 ## Questions Asked & Insights
 
 ### Module 1
@@ -180,6 +206,19 @@
 
 **User Experience Thinking**: Distinguished between debug output (toString()) and user-facing output (formatted strings). Real software needs both - internal representations for developers, polished presentations for users. These serve different purposes and should be kept separate.
 
+### Module 7
+**Insight**: Constructor validation is the ultimate defensive programming boundary. Once an object is created, it's used throughout the system. If you allow invalid Sessions to exist (negative duration, null dates), those bugs propagate. By throwing IllegalArgumentException in the constructor, you create a compile-time-enforced guarantee: every Session that exists is valid. This is Java's "make invalid states unrepresentable" philosophy in action.
+
+**Validation Placement Discovery**: Initially placed the args.length check at the wrong level - it applied to ALL commands when only 'add' needed it. This revealed an important principle: validation should be as specific as possible. Global validation creates false constraints. Command-specific validation allows each command to have appropriate requirements. This is the same principle as type specificity - don't make everything a string, don't make all validation global.
+
+**Resilient Parsing Realization**: The tolerant reader pattern (skip bad lines with warnings) demonstrates a key production software tradeoff: strict vs resilient. Strict mode (crash on first error) is great for catching bugs during development. Resilient mode (skip and warn) is better for production where one bad line shouldn't kill the whole system. The choice depends on context: financial data might demand strict, user-generated content might need resilient. Understanding the tradeoff is the engineering skill.
+
+**Exit Codes Understanding**: Before Module 7, didn't understand that printing errors isn't enough - shell scripts and automation need to know if commands succeeded. Exit code 0 vs 1 is how CLI programs communicate with the larger ecosystem. This is a UNIX convention that's invisible to humans but critical for programmatic use. Real software must think beyond human users to scripted/automated consumers.
+
+**Layer Separation Lesson**: Refactored Session error messages to remove CLI-specific details ("Usage: java PracticeTracker..."). This taught that lower layers (domain models) should be reusable across contexts. Session could be used in a web app, mobile app, or batch job - it shouldn't know about PracticeTracker's CLI. This is the same separation-of-concerns principle from earlier modules, applied to error messages. Even exceptions have layers.
+
+**Stdout/Stderr Distinction**: Initially put "No sessions added yet" to stderr thinking it was an error. Learned that stderr is for FAILURES, not empty results. An empty list is a successful query that returned nothing - semantically different from a failed query. This distinction matters for shell piping and redirection. Another example of how professional CLI programs must follow UNIX conventions.
+
 ## Common Mistakes & Corrections
 
 ### Module 1
@@ -201,6 +240,11 @@
 - **Array bounds error**: Initially tried to check `if (args[1] == null)` but this threw ArrayIndexOutOfBoundsException before the check could run. Learned that Java arrays don't return null for invalid indices - they throw immediately. Fixed by checking `args.length < 2` before accessing args[1].
 - **Redundant exception handling**: Initially had try-catch for IOException inside add case, but main() already declares throws IOException. Realized this was unnecessary nesting - removed it to let IOException propagate to the appropriate level.
 - **Empty list UX**: Initially forgot to handle empty sessions list - would just print nothing. Added check for `sessions.size() == 0` to print helpful "No sessions added yet" message.
+
+### Module 7
+- **Validation scope error**: First attempt placed args.length check at the wrong level - applied to all commands instead of just 'add'. This would have broken 'list' and 'total' commands which don't need a second argument. Fixed by moving the check inside the 'add' case where it belongs. Key lesson: validation should be scoped to where it's actually needed.
+- **Layer coupling in error messages**: Initially included CLI usage information ("Usage: java PracticeTracker add <minutes>") directly in Session class error messages. This coupled the domain model to a specific UI layer. Refactored to keep Session messages generic and reusable. Understanding that even error messages have architectural layers.
+- **Stdout vs stderr confusion**: Initially sent "No sessions added yet" to stderr, thinking it was an error condition. Learned that empty results from a successful query should go to stdout - stderr is only for actual failures. This distinction matters for shell piping and automation.
 
 ## JavaScript vs Java Comparisons
 
