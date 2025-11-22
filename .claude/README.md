@@ -376,10 +376,10 @@ Key files to review:
 
 When adding features to v2:
 
-1. Use `//p_research_codebase` to understand current implementation
+1. Use `/p_research_codebase` to understand current implementation
 2. Use `/p_create_plan` for thoughtful design
-3. Use `//p_implement_plan` for systematic implementation
-4. Use `//p_validate_plan` to ensure quality
+3. Use `/p_implement_plan` for systematic implementation
+4. Use `/p_validate_plan` to ensure quality
 5. Use `/p_commit` for clean git history
 
 The learning workflow commands still apply - v2 features can become new learning modules if desired.
